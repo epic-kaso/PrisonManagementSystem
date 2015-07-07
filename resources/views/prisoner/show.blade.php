@@ -12,6 +12,7 @@
         <div id="content">
             <section>
                 <div class="section-body">
+                    @include('partials.error')
                     <div class="row">
                         <div class="card">
                             <div class="card-head">

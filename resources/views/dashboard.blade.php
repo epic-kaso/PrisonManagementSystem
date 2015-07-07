@@ -12,13 +12,14 @@
         <div id="content">
             <section>
                 <div class="section-body">
+                    @include('partials.error')
                     <div class="row">
                         <!-- BEGIN ALERT - REVENUE -->
                         <div class="col-md-3 col-sm-6">
                             <div class="card">
                                 <div class="card-body no-padding">
                                     <div class="alert alert-callout alert-success no-margin">
-                                        <h1 class="pull-right text-success"><i class="md md-timer"></i></h1>
+                                        <h1 class="pull-right text-success"><i class="fa fa-user"></i></h1>
                                         <strong class="text-xl">{{ $prisoner_count }}</strong><br/>
                                         <span class="opacity-50">Prisoners</span>
                                     </div>
@@ -32,7 +33,7 @@
                             <div class="card">
                                 <div class="card-body no-padding">
                                     <div class="alert alert-callout alert-success no-margin">
-                                        <h1 class="pull-right text-success"><i class="md md-timer"></i></h1>
+                                        <h1 class="pull-right text-success"><i class="fa fa-building"></i></h1>
                                         <strong class="text-xl">0</strong><br/>
                                         <span class="opacity-50">Cells</span>
                                     </div>
@@ -46,7 +47,7 @@
                             <div class="card">
                                 <div class="card-body no-padding">
                                     <div class="alert alert-callout alert-success no-margin">
-                                        <h1 class="pull-right text-success"><i class="md md-timer"></i></h1>
+                                        <h1 class="pull-right text-success"><i class="fa fa-user-secret"></i></h1>
                                         <strong class="text-xl">0</strong><br/>
                                         <span class="opacity-50">Guards</span>
                                     </div>

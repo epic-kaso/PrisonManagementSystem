@@ -25,3 +25,13 @@ img.img-preview-image{
     height: 264px;
     margin-bottom: 10px;
 }
+
+.alert.alert-fixed{
+    position: fixed;
+    z-index: 100000000;
+    left: 420px;
+    top: 0;
+    width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+}

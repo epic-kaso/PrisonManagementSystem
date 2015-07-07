@@ -12,6 +12,7 @@
         <div id="content">
             <section>
                 <div class="section-body">
+                    @include('partials.error')
                     <div class="row">
                         <!-- BEGIN ALERT - REVENUE -->
                         <div class="col-md-3 col-sm-6">

@@ -18,6 +18,7 @@
         <div id="content">
             <section>
                 <div class="section-body">
+                    @include('partials.error')
                     <div class="row">
                         <!-- BEGIN VALIDATION FORM WIZARD -->
                         <div class="row">
