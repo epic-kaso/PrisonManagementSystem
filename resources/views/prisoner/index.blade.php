@@ -15,7 +15,7 @@
                     <div class="row">
                         <div class="card">
                             <div class="card-head">
-                                <header>All Invoices
+                                <header>All Prisoners
                                 </header>
 
                                 <div class="tools">

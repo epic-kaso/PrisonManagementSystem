@@ -12,7 +12,9 @@
 */
 
 Route::get('/', function () {
-    return view('dashboard');
+    $prisoner_count = \PrisonManagementSystem\Prisoner::count();
+    $prisoners = \PrisonManagementSystem\Prisoner::latest()->take(10)->get();
+    return view('dashboard',compact('prisoner_count','prisoners'));
 });
 
 Route::controller('auth','Auth\AuthController');
@@ -25,9 +27,10 @@ Route::group([],function(){
 });
 
 Route::get('prisoner-pic/{path}',function($path){
-    $path = storage_path("prisoners".PATH_SEPARATOR.$path);
+    $path = storage_path("prisoners/".$path);
     if(!File::exists($path)){
         abort(404);
     }
-    return response(File::get($path),['content-type' => 'image/jpeg']);
+    header('content-type: image/jpeg');
+    echo File::get($path);
 });
