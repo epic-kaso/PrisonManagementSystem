@@ -30,7 +30,8 @@
                                     </div>
                                     <div class="card-body ">
                                         <div id="rootwizard2" class="form-wizard form-wizard-horizontal">
-                                            <form action="{{ route('prisoner.store') }}" method="post" class="form floating-label form-validation" role="form" novalidate="novalidate">
+                                            <form enctype="multipart/form-data" action="{{ route('prisoner.store') }}" method="post" class="form floating-label form-validation" role="form" novalidate="novalidate">
+                                                <input type="hidden" name="_token" value="{{ csrf_token() }}"/>
                                                 <div class="form-wizard-nav">
                                                     <div class="progress"><div class="progress-bar progress-bar-primary"></div></div>
                                                     <ul class="nav nav-justified">
@@ -100,8 +101,8 @@
                                                             </div>
                                                             <div class="col-sm-6">
                                                                 <div class="form-group">
-                                                                    <input type="text" name="phone" id="phone" class="form-control" required>
-                                                                    <label for="phone" class="control-label">Kin Phone Number</label>
+                                                                    <input type="text" name="next_of_kin_phone" id="phone" class="form-control" required>
+                                                                    <label for="phone" class="control-label">Next of Kin Phone Number</label>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -111,13 +112,13 @@
                                                         <div class="row">
                                                             <div class="col-sm-4">
                                                                 <div class="form-group">
-                                                                    <img id="left-mugshut"
+                                                                    <img id="left-mugshot"
                                                                             class="img-responsive img-preview-image" src="/img/r-mugshot.jpg"
                                                                          alt=""/>
                                                                     <div class="input-group">
                                                                 <span class="input-group-btn">
                                                                     <span class="btn btn-primary btn-file">
-                                                                        Browse&hellip; <input data-preview="#left-mugshut" name="right_mugshot" class="img-preview-file" type="file">
+                                                                        Browse&hellip; <input data-preview="#left-mugshot" name="left_mug_shot" class="img-preview-file" type="file">
                                                                     </span>
                                                                 </span>
                                                                         <div class="input-group-content">
@@ -133,7 +134,7 @@
                                                                     <div class="input-group">
                                                                 <span class="input-group-btn">
                                                                     <span class="btn btn-primary btn-file">
-                                                                        Browse&hellip; <input data-preview="#center-mugshot" name="center_mugshot" class="img-preview-file" type="file">
+                                                                        Browse&hellip; <input data-preview="#center-mugshot" name="center_mug_shot" class="img-preview-file" type="file">
                                                                     </span>
                                                                 </span>
                                                                         <div class="input-group-content">
@@ -149,7 +150,7 @@
                                                                     <div class="input-group">
                                                                         <span class="input-group-btn">
                                                                             <span class="btn btn-primary btn-file">
-                                                                                Browse&hellip; <input name="left_mugshot" data-preview="#right-mugshot" class="img-preview-file" type="file">
+                                                                                Browse&hellip; <input name="right_mug_shot" data-preview="#right-mugshot" class="img-preview-file" type="file">
                                                                             </span>
                                                                         </span>
                                                                         <div class="input-group-content">
@@ -184,13 +185,13 @@
                                                         <div class="row">
                                                             <div class="col-sm-6">
                                                                 <div class="form-group">
-                                                                    <input type="date" name="start_date" id="start_date" class="form-control" required>
+                                                                    <input type="date" name="sentence_start" id="start_date" class="form-control" required>
                                                                     <label for="start_date" class="control-label">Sentence Start Date</label>
                                                                 </div>
                                                             </div>
                                                             <div class="col-sm-6">
                                                                 <div class="form-group">
-                                                                    <input type="date" name="end_date" id="end_date" class="form-control" required>
+                                                                    <input type="date" name="sentence_end" id="end_date" class="form-control" required>
                                                                     <label for="end_date" class="control-label">Sentence End Date</label>
                                                                 </div>
                                                             </div>

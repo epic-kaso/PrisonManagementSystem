@@ -17,7 +17,7 @@
         <ul id="main-menu" class="gui-controls">
             <!-- BEGIN DASHBOARD -->
             <li>
-                <a href="/" class="active">
+                <a href="/" class="{{ str_is('/',\Request::path())  ? 'active' : '' }}">
                     <div class="gui-icon"><i class="md md-home"></i></div>
                     <span class="title">Dashboard</span>
                 </a>
@@ -25,7 +25,7 @@
             <!-- END DASHBOARD -->
 
             <!-- BEGIN EMAIL -->
-            <li class="gui-folder">
+            <li class="{{ str_is('prisoner*',\Request::path())  ? 'active' : '' }} gui-folder">
                 <a>
                     <div class="gui-icon"><i class="md md-person-outline"></i></div>
                     <span class="title">Prisoners</span>
@@ -38,7 +38,7 @@
             </li><!--end /menu-li -->
             <!-- END EMAIL -->
 
-            <li class="gui-folder">
+            <li class="{{ str_is('guard*',\Request::path())  ? 'active' : '' }} gui-folder">
                 <a>
                     <div class="gui-icon"><i class="fa fa-user-secret"></i></div>
                     <span class="title">Guards</span>
@@ -50,7 +50,7 @@
                 </ul><!--end /submenu -->
             </li><!--end /menu-li -->
 
-            <li class="gui-folder">
+            <li class="{{ str_is('cell*',\Request::path())  ? 'active' : '' }} gui-folder">
                 <a>
                     <div class="gui-icon"><i class="fa fa-building-o"></i></div>
                     <span class="title">Cells</span>
@@ -63,7 +63,7 @@
             </li><!--end /menu-li -->
 
             <!-- BEGIN DASHBOARD -->
-            <li>
+            <li class="{{ str_is('setting*',\Request::path())  ? 'active' : '' }}">
                 <a href="html/layouts/builder.html" >
                     <div class="gui-icon"><i class="fa fa-gears"></i></div>
                     <span class="title">Settings</span>

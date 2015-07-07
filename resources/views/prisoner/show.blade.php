@@ -13,65 +13,35 @@
             <section>
                 <div class="section-body">
                     <div class="row">
-                        <!-- BEGIN ALERT - REVENUE -->
-                        <div class="col-md-3 col-sm-6">
-                            <div class="card">
-                                <div class="card-body no-padding">
-                                    <div class="alert alert-callout alert-success no-margin">
-                                        <h1 class="pull-right text-success"><i class="md md-timer"></i></h1>
-                                        <strong class="text-xl">54</strong><br/>
-                                        <span class="opacity-50">Prisoners</span>
+                        <div class="card">
+                            <div class="card-head">
+                                <header>{{ $prisoner->last_name.", ".$prisoner->first_name }}
+                                </header>
+                            </div>
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-sm-4">
+                                        <div class="form-group">
+                                            <img id="left-mugshot"
+                                                 class="img-responsive img-preview-image" src="{{ url('prisoner-pic/'.$prisoner->left_mug_shot) }}"
+                                                 alt=""/>
+                                        </div>
                                     </div>
-                                </div><!--end .card-body -->
-                            </div><!--end .card -->
-                        </div><!--end .col -->
-                        <!-- END ALERT - REVENUE -->
-
-                        <!-- BEGIN ALERT - VISITS -->
-                        <div class="col-md-3 col-sm-6">
-                            <div class="card">
-                                <div class="card-body no-padding">
-                                    <div class="alert alert-callout alert-success no-margin">
-                                        <h1 class="pull-right text-success"><i class="md md-timer"></i></h1>
-                                        <strong class="text-xl">54</strong><br/>
-                                        <span class="opacity-50">Cells</span>
+                                    <div class="col-sm-4">
+                                        <div class="form-group">
+                                            <img id="center-mugshot" class="img-responsive img-preview-image" src="{{ url('prisoner-pic/'.$prisoner->center_mug_shot) }}"
+                                                 alt=""/>
+                                        </div>
                                     </div>
-                                </div><!--end .card-body -->
-                            </div><!--end .card -->
-                        </div><!--end .col -->
-                        <!-- END ALERT - VISITS -->
-
-                        <!-- BEGIN ALERT - BOUNCE RATES -->
-                        <div class="col-md-3 col-sm-6">
-                            <div class="card">
-                                <div class="card-body no-padding">
-                                    <div class="alert alert-callout alert-success no-margin">
-                                        <h1 class="pull-right text-success"><i class="md md-timer"></i></h1>
-                                        <strong class="text-xl">54</strong><br/>
-                                        <span class="opacity-50">Guards</span>
+                                    <div class="col-sm-4">
+                                        <div class="form-group">
+                                            <img id="right-mugshot" class="img-responsive img-preview-image" src="{{ url('prisoner-pic/'.$prisoner->right_mug_shot) }}"
+                                                 alt=""/>
+                                        </div>
                                     </div>
-                                </div><!--end .card-body -->
-                            </div><!--end .card -->
-                        </div><!--end .col -->
-                        <!-- END ALERT - BOUNCE RATES -->
-
-                        <!-- BEGIN ALERT - TIME ON SITE -->
-                        <div class="col-md-3 col-sm-6">
-                            <div class="card">
-                                <div class="card-body no-padding">
-                                    <div class="alert alert-callout alert-success no-margin">
-                                        <h1 class="pull-right text-success"><i class="md md-timer"></i></h1>
-                                        <strong class="text-xl">54</strong><br/>
-                                        <span class="opacity-50">Bails</span>
-                                    </div>
-                                </div><!--end .card-body -->
-                            </div><!--end .card -->
-                        </div><!--end .col -->
-                        <!-- END ALERT - TIME ON SITE -->
-
-                    </div><!--end .row -->
-                    <div class="row">
-
+                                </div>
+                            </div>
+                         </div>
                     </div>
                 </div><!--end .section-body -->
             </section>

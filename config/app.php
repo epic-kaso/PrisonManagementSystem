@@ -143,6 +143,7 @@ return [
         PrisonManagementSystem\Providers\AppServiceProvider::class,
         PrisonManagementSystem\Providers\EventServiceProvider::class,
         PrisonManagementSystem\Providers\RouteServiceProvider::class,
+        Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class,
 
     ],
 

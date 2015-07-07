@@ -23,3 +23,11 @@ Route::group([],function(){
     Route::resource('guard','GuardController');
     Route::resource('cell','GuardController');
 });
+
+Route::get('prisoner-pic/{path}',function($path){
+    $path = storage_path("prisoners".PATH_SEPARATOR.$path);
+    if(!File::exists($path)){
+        abort(404);
+    }
+    return response(File::get($path),['content-type' => 'image/jpeg']);
+});
