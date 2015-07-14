@@ -48,6 +48,23 @@
                                             <div class="row">
                                                 <div class="col-sm-6">
                                                     <div class="form-group">
+                                                        <select name="sex" id="occupation" class="form-control" required>
+                                                            <option value="male">Male</option>
+                                                            <option value="female">Female</option>
+                                                        </select>
+                                                        <label for="occupation" class="control-label">Sex</label>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-6">
+                                                    <div class="form-group">
+                                                        <input type="text" value="{{ Session::get('address') }}" name="address" id="address" class="form-control" required>
+                                                        <label for="address" class="control-label">Address</label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-sm-6">
+                                                    <div class="form-group">
                                                         <input type="password" value="{{ Session::get('password') }}" name="password" id="password" class="form-control" required>
                                                         <label for="password" class="control-label">Password</label>
                                                     </div>

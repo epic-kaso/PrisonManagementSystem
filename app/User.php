@@ -31,6 +31,7 @@ use Illuminate\Contracts\Auth\CanResetPassword as CanResetPasswordContract;
  * @method static \Illuminate\Database\Query\Builder|\PrisonManagementSystem\User whereUpdatedAt($value)
  * @method static \Illuminate\Database\Query\Builder|\PrisonManagementSystem\User admins()
  * @method static \Illuminate\Database\Query\Builder|\PrisonManagementSystem\User guards()
+ * @method static \Illuminate\Database\Query\Builder|\PrisonManagementSystem\User createGuard($input)
  */
 class User extends Model implements AuthenticatableContract, CanResetPasswordContract
 {
@@ -48,7 +49,7 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
      *
      * @var array
      */
-    protected $fillable = ['name', 'email', 'password'];
+    protected $fillable = ['last_name','first_name', 'email', 'password'];
 
     /**
      * The attributes excluded from the model's JSON form.
@@ -64,5 +65,10 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
 
     public function scopeGuards($query){
         return $query->whereRole('warder');
+    }
+
+    public function scopeCreateGuard($query,array $input)
+    {
+        return static::create(array_merge(['role' => 'warder'],$input));
     }
 }

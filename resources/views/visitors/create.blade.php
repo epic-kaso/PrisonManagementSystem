@@ -24,7 +24,7 @@
                                         </header>
                                     </div>
                                     <div class="card-body ">
-                                        <form action="{{ route('guard.store') }}" method="post" class="form floating-label form-validation" role="form" novalidate="novalidate">
+                                        <form action="{{ route('visitor.store') }}" method="post" class="form floating-label form-validation" role="form" novalidate="novalidate">
                                             <div class="row">
                                                 <div class="col-sm-6">
                                                     <div class="form-group">

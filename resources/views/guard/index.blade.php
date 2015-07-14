@@ -39,6 +39,7 @@
                                         <th>Last Name</th>
                                         <th>First Name</th>
                                         <th>Email</th>
+                                        <th>Sex</th>
                                         <th class="text-right">Actions</th>
                                     </tr>
                                     </thead>
@@ -52,6 +53,7 @@
                                             <td>{{ $guard->last_name }}</td>
                                             <td>{{ $guard->first_name }}</td>
                                             <td>{{ $guard->email }}</td>
+                                            <td>{{ $guard->sex }}</td>
                                             <td class="text-right">
                                                 <a href="{{ route('guard.edit',$guard) }}" class="btn btn-icon-toggle"
                                                    data-toggle="tooltip" data-placement="top" data-original-title="View">

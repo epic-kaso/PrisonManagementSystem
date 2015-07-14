@@ -185,7 +185,7 @@ class PrisonerController extends Controller
 
     public function getTransfer()
     {
-
+        return view('prisoner.transfer');
     }
 
     public function postTransfer()
@@ -195,7 +195,7 @@ class PrisonerController extends Controller
 
     public function getAcquit()
     {
-
+        return view('prisoner.acquit');
     }
 
     public function postAcquit()
@@ -205,7 +205,7 @@ class PrisonerController extends Controller
 
     public function getRehab()
     {
-
+        return view('prisoner.rehab');
     }
 
     public function postRehab()

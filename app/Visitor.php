@@ -7,17 +7,17 @@ use Illuminate\Database\Eloquent\Model;
 /**
  * PrisonManagementSystem\Visitor
  *
- * @property integer $id 
- * @property string $last_name 
- * @property string $first_name 
- * @property string $sex 
- * @property string $address 
- * @property string $purpose 
- * @property string $prisoner_visited 
- * @property string $time_in 
- * @property string $time_out 
- * @property \Carbon\Carbon $created_at 
- * @property \Carbon\Carbon $updated_at 
+ * @property integer $id
+ * @property string $last_name
+ * @property string $first_name
+ * @property string $sex
+ * @property string $address
+ * @property string $purpose
+ * @property string $prisoner_visited
+ * @property string $time_in
+ * @property string $time_out
+ * @property \Carbon\Carbon $created_at
+ * @property \Carbon\Carbon $updated_at
  * @method static \Illuminate\Database\Query\Builder|\PrisonManagementSystem\Visitor whereId($value)
  * @method static \Illuminate\Database\Query\Builder|\PrisonManagementSystem\Visitor whereLastName($value)
  * @method static \Illuminate\Database\Query\Builder|\PrisonManagementSystem\Visitor whereFirstName($value)
@@ -32,5 +32,6 @@ use Illuminate\Database\Eloquent\Model;
  */
 class Visitor extends Model
 {
-    //
+    protected $guarded = ['id'];
+    protected $hidden = ['id','created_at','updated_at'];
 }

@@ -3,6 +3,7 @@
 namespace PrisonManagementSystem\Exceptions;
 
 use Exception;
+use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Symfony\Component\HttpKernel\Exception\HttpException;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
 
@@ -39,6 +40,10 @@ class Handler extends ExceptionHandler
      */
     public function render($request, Exception $e)
     {
-        return parent::render($request, $e);
+        if($e instanceof ModelNotFoundException) {
+            abort(404);
+        }else {
+            return parent::render($request, $e);
+        }
     }
 }

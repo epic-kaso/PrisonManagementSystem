@@ -20,8 +20,8 @@ class CreateVisitorsTable extends Migration
             $table->string('address');
             $table->text('purpose');
             $table->text('prisoner_visited');
-            $table->dateTime('time_in');
-            $table->dateTime('time_out');
+            $table->string('time_in');
+            $table->string('time_out');
             $table->timestamps();
         });
     }

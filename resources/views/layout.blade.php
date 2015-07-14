@@ -67,11 +67,19 @@
     $("a[data-delete]").click(function(evt){
         var url = $(this).attr('href');
         console.log("url",url);
-        $('<form id="deleteForm" method="post" action="'+url+'"><input type="hidden" name="_method" value="DELETE"></form>')
-                .appendTo('body');
-        $('form#deleteForm')
-                .submit()
-                .remove();
+
+        var response =  confirm("Are you sure you want to delete?");
+
+        console.log(response);
+
+        if(response) {
+
+            $('<form id="deleteForm" method="post" action="' + url + '"><input type="hidden" name="_method" value="DELETE"></form>')
+                    .appendTo('body');
+            $('form#deleteForm')
+                    .submit()
+                    .remove();
+        }
 
         evt.preventDefault();
     });

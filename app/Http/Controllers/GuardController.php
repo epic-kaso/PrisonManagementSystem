@@ -2,15 +2,23 @@
 
 namespace PrisonManagementSystem\Http\Controllers;
 
-use Illuminate\Http\Request;
-
 use PrisonManagementSystem\Http\Requests;
 use PrisonManagementSystem\Http\Controllers\Controller;
 use PrisonManagementSystem\User;
+use Request;
 use Session;
 
 class GuardController extends Controller
 {
+
+    protected $validationRules = [
+        'last_name' => 'required|max:255',
+        'first_name' => 'required|max:255',
+        'email' => 'required|email|unique:users',
+        'password' => 'required|confirmed',
+        'sex' => '',
+        'address' => '',
+    ];
     /**
      * Display a listing of the resource.
      *
@@ -39,7 +47,21 @@ class GuardController extends Controller
      */
     public function store()
     {
-        //
+        $validation = $this->validator(Request::all());
+
+        if($validation->fails()){
+            return redirect()->back()
+                ->withInput(Request::all())
+                ->withErrors($validation);
+        }
+
+        $data = Request::only($this->requiredkeys());
+
+        $data['password'] = bcrypt($data['password']);
+
+        $guard = User::createGuard($data);
+
+        return redirect(route('guard.show',['id'=> $guard->id]))->with('success','Added Successfully');
     }
 
     /**
