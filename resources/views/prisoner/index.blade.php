@@ -38,6 +38,7 @@
                                         <th>S/N</th>
                                         <th>Last Name</th>
                                         <th>First Name</th>
+                                        <th>Acquited</th>
                                         <th>Sentence End</th>
                                         <th class="text-right">Actions</th>
                                     </tr>
@@ -51,10 +52,15 @@
                                         <td>{{ $prisoner->id }}</td>
                                         <td>{{ $prisoner->last_name }}</td>
                                         <td>{{ $prisoner->first_name }}</td>
+                                        <td><span class="label label-{{ $prisoner->bailed ? 'success' : 'danger' }}">{{ $prisoner->bailed ? 'YES' : 'NO' }}</span></td>
                                         <td>{{ \Carbon\Carbon::parse($prisoner->sentence_end)->toFormattedDateString() }}</td>
                                         <td class="text-right">
+                                            <a href="{{ url('activities/acquit/'.$prisoner->id.'?acquit=1') }}" class="btn btn-icon-toggle"
+                                               data-toggle="tooltip" data-placement="top" data-original-title="Acquit">
+                                                <i class="fa fa-sign-out"></i>
+                                            </a>
                                             <a href="{{ route('prisoner.edit',$prisoner) }}" class="btn btn-icon-toggle"
-                                               data-toggle="tooltip" data-placement="top" data-original-title="View">
+                                               data-toggle="tooltip" data-placement="top" data-original-title="Edit">
                                                 <i class="fa fa-pencil"></i>
                                             </a>
                                             <a href="{{ route('prisoner.show',$prisoner) }}" class="btn btn-icon-toggle"

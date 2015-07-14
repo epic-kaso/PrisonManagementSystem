@@ -54,7 +54,7 @@
                                             <td>{{ $transfer->destination }}</td>
                                             <td class="text-right">
                                                 <a href="{{ route('transfer.edit',$transfer) }}" class="btn btn-icon-toggle"
-                                                   data-toggle="tooltip" data-placement="top" data-original-title="View">
+                                                   data-toggle="tooltip" data-placement="top" data-original-title="Edit">
                                                     <i class="fa fa-pencil"></i>
                                                 </a>
                                                 <a href="{{ route('transfer.show',$transfer) }}" class="btn btn-icon-toggle"

@@ -56,7 +56,7 @@
                                             <td>{{ $guard->sex }}</td>
                                             <td class="text-right">
                                                 <a href="{{ route('guard.edit',$guard) }}" class="btn btn-icon-toggle"
-                                                   data-toggle="tooltip" data-placement="top" data-original-title="View">
+                                                   data-toggle="tooltip" data-placement="top" data-original-title="Edit">
                                                     <i class="fa fa-pencil"></i>
                                                 </a>
                                                 <a href="{{ route('guard.show',$guard) }}" class="btn btn-icon-toggle"

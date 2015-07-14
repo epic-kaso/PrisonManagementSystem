@@ -42,7 +42,7 @@
                                             <tr>
                                                 <td>Prisoner:
                                                     <strong class="text-bold pull-right">{{  $transfer->prisoner->first_name  }} {{  $transfer->prisoner->last_name  }}</strong>
-                                                    <a href="{{ route('prisoner.show',$transfer->prisoner) }}">View Prisoner</a>
+                                                    <a class="btn btn-xs btn-link" href="{{ route('prisoner.show',$transfer->prisoner) }}">View Prisoner</a>
                                                 </td>
                                             </tr>
                                             <tr>

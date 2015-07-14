@@ -62,6 +62,15 @@
                                         <div class="panel panel-default">
                                             <table class="table">
                                                 <tr>
+                                                    <td>
+                                                        Acquited: <strong class="text-bold pull-right">
+                                                        <span class="label label-{{ $prisoner->bailed ? 'success' : 'danger' }}">
+                                                            {{ $prisoner->bailed ? 'YES' : 'NO' }}
+                                                        </span>
+                                                        </strong>
+                                                    </td>
+                                                </tr>
+                                                <tr>
                                                     <td>First Name: <strong class="text-bold pull-right">{{  $prisoner->first_name  }}</strong></td>
                                                 </tr>
                                                 <tr>

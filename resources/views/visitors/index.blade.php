@@ -58,7 +58,7 @@
                                             <td>{{ $visitor->time_out }}</td>
                                             <td class="text-right">
                                                 <a href="{{ route('visitor.edit',$visitor) }}" class="btn btn-icon-toggle"
-                                                   data-toggle="tooltip" data-placement="top" data-original-title="View">
+                                                   data-toggle="tooltip" data-placement="top" data-original-title="Edit">
                                                     <i class="fa fa-pencil"></i>
                                                 </a>
                                                 <a href="{{ route('visitor.show',$visitor) }}" class="btn btn-icon-toggle"

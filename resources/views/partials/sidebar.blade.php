@@ -58,7 +58,6 @@
                 </a>
                 <!--start submenu -->
                 <ul>
-                    <li><a href="{{ url('activities/acquit') }}" ><span class="title">Acquit Prisoner</span></a></li>
                     <li><a href="{{ url('activities/rehab') }}" ><span class="title">Punishment & Rehab</span></a></li>
                 </ul><!--end /submenu -->
             </li><!--end /menu-li -->
