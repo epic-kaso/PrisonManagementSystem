@@ -16,7 +16,7 @@
                     <div class="row">
                         <div class="card">
                             <div class="card-head">
-                                <header>All Guards
+                                <header>All Visitors
                                 </header>
 
                                 <div class="tools">
@@ -38,30 +38,34 @@
                                         <th>S/N</th>
                                         <th>Last Name</th>
                                         <th>First Name</th>
-                                        <th>Email</th>
+                                        <th>Inmate Visited</th>
+                                        <th>Time In</th>
+                                        <th>Time Out</th>
                                         <th class="text-right">Actions</th>
                                     </tr>
                                     </thead>
                                     <tbody>
-                                    @forelse($guards as $guard)
+                                    @forelse($visitors as $visitor)
                                         <tr>
                                             <td>
                                                 <input type="checkbox">
                                             </td>
-                                            <td>{{ $guard->id }}</td>
-                                            <td>{{ $guard->last_name }}</td>
-                                            <td>{{ $guard->first_name }}</td>
-                                            <td>{{ $guard->email }}</td>
+                                            <td>{{ $visitor->id }}</td>
+                                            <td>{{ $visitor->last_name }}</td>
+                                            <td>{{ $visitor->first_name }}</td>
+                                            <td>{{ $visitor->prisoner_visited }}</td>
+                                            <td>{{ $visitor->time_in }}</td>
+                                            <td>{{ $visitor->time_out }}</td>
                                             <td class="text-right">
-                                                <a href="{{ route('guard.edit',$guard) }}" class="btn btn-icon-toggle"
+                                                <a href="{{ route('visitor.edit',$visitor) }}" class="btn btn-icon-toggle"
                                                    data-toggle="tooltip" data-placement="top" data-original-title="View">
                                                     <i class="fa fa-pencil"></i>
                                                 </a>
-                                                <a href="{{ route('guard.show',$guard) }}" class="btn btn-icon-toggle"
+                                                <a href="{{ route('visitor.show',$visitor) }}" class="btn btn-icon-toggle"
                                                    data-toggle="tooltip" data-placement="top" data-original-title="View">
                                                     <i class="fa fa-eye"></i>
                                                 </a>
-                                                <a data-delete href="{{ route('guard.destroy',['id'=> $guard->id]) }}"
+                                                <a data-delete href="{{ route('visitor.destroy',['id'=> $visitor->id]) }}"
                                                    class="btn btn-icon-toggle" data-toggle="tooltip" data-placement="top"
                                                    data-original-title="Delete row"><i class="fa fa-trash-o"></i></a>
                                             </td>
@@ -70,14 +74,14 @@
                                     @empty
                                         <tr>
                                             <td colspan="9" class="text-center text-muted">
-                                                <h5> No Guard yet</h5>
+                                                <h5> No Visitor yet</h5>
                                             </td>
                                         </tr>
                                     @endforelse
                                     </tbody>
                                 </table>
 
-                                {!! $guards->render() !!}
+                                {!! $visitors->render() !!}
                             </div>
                         </div>
                     </div><!--end .section-body -->
