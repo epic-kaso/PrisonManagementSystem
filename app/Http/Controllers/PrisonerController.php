@@ -35,6 +35,30 @@ class PrisonerController extends Controller
         'sentence_start' => 'required|date',
         'sentence_end' => 'required|date'
     ];
+
+    protected $updateValidationRules = [
+        'last_name' => 'required|max:255',
+        'first_name' => 'required|max:255',
+        'genotype' => 'required',
+        'sex' => 'required',
+        'medical_status' => '',
+        'court' => '',
+        'crime_code' => '',
+        'cell_roommate' => '',
+        'blood_group' => 'required',
+        'birth_date' => 'required|date',
+        'next_of_kin' => 'required',
+        'next_of_kin_phone' => 'required',
+        'right_mug_shot' => 'image',
+        'left_mug_shot' => 'image',
+        'center_mug_shot' => 'image',
+        'crime' => 'required',
+        'sentence' => 'required',
+        'arresting_officer' => '',
+        'address' => '',
+        'sentence_start' => 'required|date',
+        'sentence_end' => 'required|date'
+    ];
     private $destinationPath;
 
     private $leftMugshotName = 'left_mug_shot';
@@ -134,7 +158,38 @@ class PrisonerController extends Controller
      */
     public function update($id)
     {
-        //
+        $validation = $this->validator(Request::all(),$this->updateValidationRules);
+
+        if($validation->fails()){
+            return redirect()->back()
+                ->withInput(Request::all())
+                ->withErrors($validation);
+        }
+
+        $prisoner = Prisoner::findOrFail($id);
+
+        $data = Request::only($this->requiredkeys($this->updateValidationRules));
+
+        unset($data[$this->leftMugshotName]);
+        unset($data[$this->centerMugshotName]);
+        unset($data[$this->rightMugshotName]);
+
+        if(Request::hasFile($this->leftMugshotName)){
+            $prisoner->left_mug_shot = $this->uploadImage(Request::file($this->leftMugshotName),$this->generatePictureName($this->leftMugshotName,$prisoner));
+        }
+
+        if(Request::hasFile($this->centerMugshotName)){
+            $prisoner->center_mug_shot = $this->uploadImage(Request::file($this->centerMugshotName),$this->generatePictureName($this->centerMugshotName,$prisoner));
+        }
+
+        if(Request::hasFile($this->rightMugshotName)){
+            $prisoner->right_mug_shot = $this->uploadImage(Request::file($this->rightMugshotName),$this->generatePictureName($this->rightMugshotName,$prisoner));
+        }
+
+        $prisoner->fill($data);
+        $prisoner->save();
+
+        return redirect(route('prisoner.show',['id'=> $prisoner->id]))->with('success','Updated Successfully');
     }
 
     /**
