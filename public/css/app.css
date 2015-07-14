@@ -35,3 +35,14 @@ img.img-preview-image{
     margin-left: auto;
     margin-right: auto;
 }
+
+
+.headerbar-center {
+    clear: both;
+    text-align: center;
+}
+
+.headerbar-center h1, .headerbar-center h2,.headerbar-center h3,.headerbar-center h4{
+    margin-top: 0;
+    margin-bottom: 0;
+}

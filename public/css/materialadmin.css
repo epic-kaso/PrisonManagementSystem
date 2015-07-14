@@ -1219,7 +1219,7 @@ a.text-success:hover {
   position: absolute;
   left: 0;
   right: 0;
-  height: 64px;
+  height: 74px;
   z-index: 1005;
   background: #ffffff;
   color: rgba(49, 50, 53, 0.6);
@@ -1234,7 +1234,7 @@ a.text-success:hover {
 }
 .headerbar {
   position: relative;
-  min-height: 64px;
+  min-height: 74px;
 }
 .headerbar:before,
 .headerbar:after {

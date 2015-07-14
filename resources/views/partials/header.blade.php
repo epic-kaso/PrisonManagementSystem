@@ -5,7 +5,7 @@
             <ul class="header-nav header-nav-options">
                 <li class="header-nav-brand" >
                     <div class="brand-holder">
-                        <a href="html/dashboards/dashboard.html">
+                        <a href="/">
                             <span class="text-lg text-bold text-primary">P.I.M.S</span>
                         </a>
                     </div>
@@ -17,22 +17,31 @@
                 </li>
             </ul>
         </div>
-        <!-- Collect the nav links, forms, and other content for toggling -->
-        <div class="headerbar-right">
-            <ul class="header-nav header-nav-profile">
-                <li class="dropdown">
-                    <a href="javascript:void(0);" class="dropdown-toggle ink-reaction" data-toggle="dropdown">
-                        <span><span class="fa fa-user"></span></span>
+
+        <div class="headerbar-center">
+            <div class="pull-right">
+                <ul class="header-nav header-nav-profile">
+                    <li class="dropdown">
+                        <a href="javascript:void(0);" class="dropdown-toggle ink-reaction" data-toggle="dropdown">
+                            <span><span class="fa fa-user"></span></span>
 								<span class="profile-info">
 									{{ Auth::user()->last_name }}
-									<small>{{ Auth::user()->role }}</small>
+                                    <small>{{ Auth::user()->role }}</small>
 								</span>
-                    </a>
-                    <ul class="dropdown-menu animation-dock">
-                        <li><a href="{{ url('auth/logout') }}"><i class="fa fa-fw fa-power-off text-danger"></i> Logout</a></li>
-                    </ul><!--end .dropdown-menu -->
-                </li><!--end .dropdown -->
-            </ul><!--end .header-nav-profile -->
-        </div><!--end #header-navbar-collapse -->
+                        </a>
+                        <ul class="dropdown-menu animation-dock">
+                            <li><a href="{{ url('auth/logout') }}"><i class="fa fa-fw fa-power-off text-danger"></i> Logout</a></li>
+                        </ul><!--end .dropdown-menu -->
+                    </li><!--end .dropdown -->
+                </ul><!--end .header-nav-profile -->
+            </div>
+            <div style="display: inline-block;margin-left: 250px;">
+                <h4>FEDERAL REPUBLIC OF NIGERIA</h4>
+                <h1>NIGERIAN PRISON SERVICE</h1>
+                <p>Anambra State Command, Amaobia.</p>
+            </div>
+
+        </div>
+        <!-- Collect the nav links, forms, and other content for toggling -->
     </div>
 </header>
