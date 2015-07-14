@@ -21,6 +21,12 @@
 
                                 <div class="tools">
                                     <div class="btn-group">
+                                        @if(!$prisoner->bailed)
+                                        <a href="{{ url('activities/acquit/'.$prisoner->id.'?acquit=1') }}" class="btn ink-reaction btn-success mr-10">
+                                            <i class="fa fa-sign-out"></i>
+                                            <span class="hide-on-mobile">Acquit</span>
+                                        </a>
+                                        @endif
                                         <a data-delete href="{{ route('prisoner.destroy',['id'=> $prisoner->id]) }}" class="btn ink-reaction btn-danger mr-10" title="Delete">
                                             <i class="fa fa-trash-o"></i>
                                             <span class="hide-on-mobile">Delete</span>
