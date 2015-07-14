@@ -17,6 +17,8 @@ class CreatePrisonersTable extends Migration
             $table->string('first_name');
             $table->string('middle_name')->nullable();
             $table->string('last_name');
+            $table->string('sex');
+            $table->string('cell_roommate');
             $table->string('address');
             $table->string('next_of_kin');
             $table->string('next_of_kin_phone');
@@ -30,8 +32,12 @@ class CreatePrisonersTable extends Migration
             $table->string('arresting_officer');
             $table->text('crime');
             $table->text('sentence');
+            $table->text('court');
+            $table->string('crime_code');
+            $table->text('medical_status');
             $table->date('sentence_start');
             $table->date('sentence_end');
+            $table->boolean('bailed')->default(false);
             $table->timestamps();
         });
     }

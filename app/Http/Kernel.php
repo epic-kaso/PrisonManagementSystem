@@ -16,8 +16,7 @@ class Kernel extends HttpKernel
         \PrisonManagementSystem\Http\Middleware\EncryptCookies::class,
         \Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse::class,
         \Illuminate\Session\Middleware\StartSession::class,
-        \Illuminate\View\Middleware\ShareErrorsFromSession::class,
-        \PrisonManagementSystem\Http\Middleware\VerifyCsrfToken::class,
+        \Illuminate\View\Middleware\ShareErrorsFromSession::class
     ];
 
     /**
@@ -29,5 +28,6 @@ class Kernel extends HttpKernel
         'auth' => \PrisonManagementSystem\Http\Middleware\Authenticate::class,
         'auth.basic' => \Illuminate\Auth\Middleware\AuthenticateWithBasicAuth::class,
         'guest' => \PrisonManagementSystem\Http\Middleware\RedirectIfAuthenticated::class,
+        'csrf' => \PrisonManagementSystem\Http\Middleware\VerifyCsrfToken::class,
     ];
 }

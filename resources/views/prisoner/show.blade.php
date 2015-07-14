@@ -18,6 +18,20 @@
                             <div class="card-head">
                                 <header><strong>{{  $prisoner->last_name.", ".$prisoner->first_name  }}</strong>
                                 </header>
+
+                                <div class="tools">
+                                    <div class="btn-group">
+                                        <a data-delete href="{{ route('prisoner.destroy',['id'=> $prisoner->id]) }}" class="btn ink-reaction btn-danger mr-10" title="Delete">
+                                            <i class="fa fa-trash-o"></i>
+                                            <span class="hide-on-mobile">Delete</span>
+                                        </a>
+
+                                        <a href="{{ route('prisoner.edit',['id'=> $prisoner->id]) }}" class="btn ink-reaction btn-info mr-10" title="Delete">
+                                            <i class="fa fa-pencil"></i>
+                                            <span class="hide-on-mobile">Edit</span>
+                                        </a>
+                                    </div>
+                                </div>
                             </div>
                             <div class="card-body">
                                 <div class="row">
@@ -43,66 +57,71 @@
                                 </div>
 
                                 <div class="row">
-                                    <table class="table">
-                                        <tr>
-                                            <td>First Name</td>
-                                            <td><strong>{{  $prisoner->first_name  }}</strong></td>
-                                        </tr>
-                                        <tr>
-                                            <td>Last Name</td>
-                                            <td><strong>{{  $prisoner->last_name  }}</strong></td>
-                                        </tr>
-                                        <tr>
-                                            <td>Birth Date</td>
-                                            <td><strong>{{  $prisoner->birth_date  }}</strong></td>
-                                        </tr>
-                                        <tr>
-                                            <td>Blood Group</td>
-                                            <td><strong>{{  $prisoner->blood_group  }}</strong></td>
-                                        </tr>
 
-                                        <tr>
-                                            <td>Genotype</td>
-                                            <td><strong>{{  $prisoner->genotype  }}</strong></td>
-                                        </tr>
+                                    <div class="col-sm-6">
+                                        <div class="panel panel-default">
+                                            <table class="table">
+                                                <tr>
+                                                    <td>First Name: <strong class="text-bold pull-right">{{  $prisoner->first_name  }}</strong></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Last Name: <strong class="text-bold pull-right">{{  $prisoner->last_name  }}</strong></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Sex: <strong class="text-bold pull-right">{{  $prisoner->sex  }}</strong></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Birth Date: <strong class="text-bold pull-right">{{  $prisoner->birth_date  }}</strong></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Blood Group: <strong class="text-bold pull-right">{{  $prisoner->blood_group  }}</strong></td>
+                                                </tr>
 
-                                        <tr>
-                                            <td>Address</td>
-                                            <td><strong>{{  $prisoner->address  }}</strong></td>
-                                        </tr>
-                                        <tr>
-                                            <td>Next Of Kin</td>
-                                            <td><strong>{{  $prisoner->next_of_kin  }}</strong></td>
-                                        </tr>
-                                        <tr>
-                                            <td>Next Of Kin Phone</td>
-                                            <td><strong>{{  $prisoner->next_of_kin_phone  }}</strong></td>
-                                        </tr>
-                                        <tr>
-                                            <td>Crime</td>
-                                            <td><strong>{{  $prisoner->crime  }}</strong></td>
-                                        </tr>
-                                        <tr>
-                                            <td>Sentence</td>
-                                            <td><strong>{{  $prisoner->sentence  }}</strong></td>
-                                        </tr>
+                                                <tr>
+                                                    <td>Genotype: <strong class="text-bold pull-right">{{  $prisoner->genotype  }}</strong></td>
+                                                </tr>
 
-                                        <tr>
-                                            <td>Sentence Start</td>
-                                            <td><strong>{{  $prisoner->sentence_start  }}</strong></td>
-                                        </tr>
-
-                                        <tr>
-                                            <td>Sentence End</td>
-                                            <td><strong>{{  $prisoner->sentence_end  }}</strong></td>
-                                        </tr>
-
-                                        <tr>
-                                            <td>Crime</td>
-                                            <td><strong>{{  $prisoner->crime  }}</strong></td>
-                                        </tr>
-                                    </table>
+                                                <tr>
+                                                    <td>Address: <strong class="text-bold pull-right">{{  $prisoner->address  }}</strong></td>
+                                                </tr>
+                                            </table>
+                                    </div>
                                 </div>
+
+                                    <div class="col-sm-6">
+                                        <div class="panel panel-default">
+                                            <table class="table">
+                                                <tr>
+                                                    <td>Next Of Kin: <strong class="text-bold pull-right">{{  $prisoner->next_of_kin  }}</strong></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Next Of Kin Phone: <strong class="text-bold pull-right">{{  $prisoner->next_of_kin_phone  }}</strong></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Crime: <strong class="text-bold pull-right">{{  $prisoner->crime  }}</strong></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Crime Code: <strong class="text-bold pull-right">{{  $prisoner->crime_code  }}</strong></td>
+                                                </tr>
+
+                                                <tr>
+                                                    <td>Sentence: <strong class="text-bold pull-right">{{  $prisoner->sentence  }}</strong></td>
+                                                </tr>
+
+                                                <tr>
+                                                    <td>Sentence Start: <strong class="text-bold pull-right">{{  $prisoner->sentence_start  }}</strong></td>
+                                                </tr>
+
+                                                <tr>
+                                                    <td>Sentence End: <strong class="text-bold pull-right">{{  $prisoner->sentence_end  }}</strong></td>
+                                                </tr>
+
+                                                <tr>
+                                                    <td>Court: <strong class="text-bold pull-right">{{  $prisoner->court  }}</strong></td>
+                                                </tr>
+                                            </table>
+                                        </div>
+                                    </div>
                             </div>
                          </div>
                     </div>

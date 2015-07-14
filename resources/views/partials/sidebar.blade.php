@@ -34,6 +34,9 @@
                 <ul>
                     <li><a href="{{ route('prisoner.create') }}" ><span class="title">Add Prison</span></a></li>
                     <li><a href="{{ route('prisoner.index') }}" ><span class="title">List of Prisoners</span></a></li>
+                    <li><a href="{{ route('prisoner.getTransfer') }}" ><span class="title">Transfer Prisoner</span></a></li>
+                    <li><a href="{{ route('prisoner.getAcquit') }}" ><span class="title">Acquit Prisoner</span></a></li>
+                    <li><a href="{{ route('prisoner.getRehab') }}" ><span class="title">Punishment & Rehab</span></a></li>
                 </ul><!--end /submenu -->
             </li><!--end /menu-li -->
             <!-- END EMAIL -->
@@ -50,32 +53,32 @@
                 </ul><!--end /submenu -->
             </li><!--end /menu-li -->
 
-            <li class="{{ str_is('cell*',\Request::path())  ? 'active' : '' }} gui-folder">
+            <li class="{{ str_is('visitor*',\Request::path())  ? 'active' : '' }} gui-folder">
                 <a>
                     <div class="gui-icon"><i class="fa fa-building-o"></i></div>
-                    <span class="title">Cells</span>
+                    <span class="title">Visitors</span>
                 </a>
                 <!--start submenu -->
                 <ul>
-                    <li><a href="{{ route('cell.create') }}" ><span class="title">Add Cell</span></a></li>
-                    <li><a href="{{ route('cell.index') }}" ><span class="title">List Cells</span></a></li>
+                    <li><a href="{{ route('visitor.create') }}" ><span class="title">Add New Visitor</span></a></li>
+                    <li><a href="{{ route('visitor.index') }}" ><span class="title">List Visitors</span></a></li>
                 </ul><!--end /submenu -->
             </li><!--end /menu-li -->
 
-            <!-- BEGIN DASHBOARD -->
-            <li class="{{ str_is('setting*',\Request::path())  ? 'active' : '' }}">
-                <a href="html/layouts/builder.html" >
-                    <div class="gui-icon"><i class="fa fa-gears"></i></div>
-                    <span class="title">Settings</span>
-                </a>
-            </li><!--end /menu-li -->
+            {{--<!-- BEGIN DASHBOARD -->--}}
+            {{--<li class="{{ str_is('setting*',\Request::path())  ? 'active' : '' }}">--}}
+                {{--<a href="html/layouts/builder.html" >--}}
+                    {{--<div class="gui-icon"><i class="fa fa-gears"></i></div>--}}
+                    {{--<span class="title">Settings</span>--}}
+                {{--</a>--}}
+            {{--</li><!--end /menu-li -->--}}
             <!-- END DASHBOARD -->
         </ul><!--end .main-menu -->
         <!-- END MAIN MENU -->
 
         <div class="menubar-foot-panel">
             <small class="no-linebreak hidden-folded">
-                <span class="opacity-75">Copyright &copy; {{ Carbon\Carbon::now()->year }}</span> <strong>PMS</strong>
+                <span class="opacity-75">Copyright &copy; {{ Carbon\Carbon::now()->year }}</span> <strong>P.I.M.S</strong>
             </small>
         </div>
     </div><!--end .menubar-scroll-panel-->

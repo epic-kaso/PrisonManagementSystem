@@ -12,6 +12,8 @@
                         <br/>
                         <span class="text-lg text-bold text-primary">Prison Management System</span>
                         <br/><br/>
+                        @include('partials.error')
+                        <br>
                         <form class="form floating-label" action="{{ url('/auth/login') }}" accept-charset="utf-8" method="post">
                             <div class="form-group">
                                 <input type="text" class="form-control" id="username" name="email">

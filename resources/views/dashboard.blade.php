@@ -34,8 +34,8 @@
                                 <div class="card-body no-padding">
                                     <div class="alert alert-callout alert-success no-margin">
                                         <h1 class="pull-right text-success"><i class="fa fa-building"></i></h1>
-                                        <strong class="text-xl">0</strong><br/>
-                                        <span class="opacity-50">Cells</span>
+                                        <strong class="text-xl">{{ $visitors_count }}</strong><br/>
+                                        <span class="opacity-50">Visitors</span>
                                     </div>
                                 </div><!--end .card-body -->
                             </div><!--end .card -->
@@ -48,7 +48,7 @@
                                 <div class="card-body no-padding">
                                     <div class="alert alert-callout alert-success no-margin">
                                         <h1 class="pull-right text-success"><i class="fa fa-user-secret"></i></h1>
-                                        <strong class="text-xl">0</strong><br/>
+                                        <strong class="text-xl">{{ $guards_count }}</strong><br/>
                                         <span class="opacity-50">Guards</span>
                                     </div>
                                 </div><!--end .card-body -->
@@ -62,7 +62,7 @@
                                 <div class="card-body no-padding">
                                     <div class="alert alert-callout alert-success no-margin">
                                         <h1 class="pull-right text-success"><i class="md md-timer"></i></h1>
-                                        <strong class="text-xl">0</strong><br/>
+                                        <strong class="text-xl">{{ $bailed_count }}</strong><br/>
                                         <span class="opacity-50">Bails</span>
                                     </div>
                                 </div><!--end .card-body -->
@@ -75,35 +75,13 @@
                         <div class="col-sm-6">
                             <div class="card">
                                 <div class="card-head">
-                                    <header>Recent Prisoners
+                                    <header>Recently added Prisoners
                                     </header>
-                                </div>
-                                <div id="data-table-selection-header" class="bootgrid-header container-fluid">
-                                    <div class="row">
-                                        <div class="col-sm-6 actionBar">
-                                            <div class="search form-group">
-                                                <div class="input-group">
-                        <span class="input-group-addon">
-                            <span class="md md-search"></span>
-                        </span>
-                                                    <input type="text" ng-model="search_invoice" class="search-field form-control"
-                                                           placeholder="Search">
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
                                 </div>
                                 <div class="table-responsive">
                                     <table class="table table-hover">
                                         <thead>
                                         <tr>
-                                            <th>
-                                                <div class="checkbox checkbox-inline checkbox-styled">
-                                                    <label>
-                                                        <input type="checkbox" ng-model="ui.selectAll"><span></span>
-                                                    </label>
-                                                </div>
-                                            </th>
                                             <th>S/N</th>
                                             <th>Last Name</th>
                                             <th>First Name</th>
@@ -114,13 +92,6 @@
                                         <tbody>
                                         @forelse($prisoners as $prisoner)
                                             <tr>
-                                                <td>
-                                                    <div class="checkbox checkbox-inline checkbox-styled">
-                                                        <label>
-                                                            <input type="checkbox" ng-model="invoice.selected"><span></span>
-                                                        </label>
-                                                    </div>
-                                                </td>
                                                 <td>{{ $prisoner->id }}</td>
                                                 <td>{{ $prisoner->last_name }}</td>
                                                 <td>{{ $prisoner->first_name }}</td>
@@ -152,32 +123,10 @@
                                     <header>Recently Bailed
                                     </header>
                                 </div>
-                                <div id="data-table-selection-header" class="bootgrid-header container-fluid">
-                                    <div class="row">
-                                        <div class="col-sm-6 actionBar">
-                                            <div class="search form-group">
-                                                <div class="input-group">
-                        <span class="input-group-addon">
-                            <span class="md md-search"></span>
-                        </span>
-                                                    <input type="text" ng-model="search_invoice" class="search-field form-control"
-                                                           placeholder="Search">
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
                                 <div class="table-responsive">
                                     <table class="table table-hover">
                                         <thead>
                                         <tr>
-                                            <th>
-                                                <div class="checkbox checkbox-inline checkbox-styled">
-                                                    <label>
-                                                        <input type="checkbox" ng-model="ui.selectAll"><span></span>
-                                                    </label>
-                                                </div>
-                                            </th>
                                             <th>S/N</th>
                                             <th>Last Name</th>
                                             <th>First Name</th>
@@ -186,15 +135,8 @@
                                         </tr>
                                         </thead>
                                         <tbody>
-                                        @forelse($prisoners as $prisoner)
+                                        @forelse($bailedPrisoners as $prisoner)
                                             <tr>
-                                                <td>
-                                                    <div class="checkbox checkbox-inline checkbox-styled">
-                                                        <label>
-                                                            <input type="checkbox" ng-model="invoice.selected"><span></span>
-                                                        </label>
-                                                    </div>
-                                                </td>
                                                 <td>{{ $prisoner->id }}</td>
                                                 <td>{{ $prisoner->last_name }}</td>
                                                 <td>{{ $prisoner->first_name }}</td>

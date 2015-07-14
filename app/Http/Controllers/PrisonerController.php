@@ -16,6 +16,11 @@ class PrisonerController extends Controller
         'last_name' => 'required|max:255',
         'first_name' => 'required|max:255',
         'genotype' => 'required',
+        'sex' => 'required',
+        'medical_status' => '',
+        'court' => '',
+        'crime_code' => '',
+        'cell_roommate' => '',
         'blood_group' => 'required',
         'birth_date' => 'required|date',
         'next_of_kin' => 'required',
@@ -73,6 +78,7 @@ class PrisonerController extends Controller
     public function store()
     {
         $validation = $this->validator(Request::all());
+
         if($validation->fails()){
             return redirect()->back()->withErrors($validation);
         }
@@ -173,5 +179,35 @@ class PrisonerController extends Controller
     private function generatePictureName($baseName,Prisoner $prisoner)
     {
         return "prisoner_".$prisoner->id."_".$baseName;
+    }
+
+    public function getTransfer()
+    {
+
+    }
+
+    public function postTransfer()
+    {
+
+    }
+
+    public function getAcquit()
+    {
+
+    }
+
+    public function postAcquit()
+    {
+
+    }
+
+    public function getRehab()
+    {
+
+    }
+
+    public function postRehab()
+    {
+
     }
 }

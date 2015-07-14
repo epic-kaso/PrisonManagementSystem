@@ -48,11 +48,7 @@
                                     <thead>
                                     <tr>
                                         <th>
-                                            <div class="checkbox checkbox-inline checkbox-styled">
-                                                <label>
-                                                    <input type="checkbox" ng-model="ui.selectAll"><span></span>
-                                                </label>
-                                            </div>
+                                            <input type="checkbox">
                                         </th>
                                         <th>S/N</th>
                                         <th>Last Name</th>
@@ -65,11 +61,7 @@
                                     @forelse($prisoners as $prisoner)
                                     <tr>
                                         <td>
-                                            <div class="checkbox checkbox-inline checkbox-styled">
-                                                <label>
-                                                    <input type="checkbox" ng-model="invoice.selected"><span></span>
-                                                </label>
-                                            </div>
+                                            <input type="checkbox" ng-model="invoice.selected">
                                         </td>
                                         <td>{{ $prisoner->id }}</td>
                                         <td>{{ $prisoner->last_name }}</td>

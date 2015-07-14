@@ -10,20 +10,23 @@
 | and give it the controller to call when that URI is requested.
 |
 */
-
-Route::get('/', function () {
-    $prisoner_count = \PrisonManagementSystem\Prisoner::count();
-    $prisoners = \PrisonManagementSystem\Prisoner::latest()->take(10)->get();
-    return view('dashboard',compact('prisoner_count','prisoners'));
-});
-
 Route::controller('auth','Auth\AuthController');
 Route::controller('password','Auth\PasswordController');
-// 'middleware' => 'auth'
-Route::group([],function(){
+
+Route::group(['middleware' => 'auth'],function(){
+    Route::get('/','DashboardController@index');
+    Route::get('prisoner/transfer',['as'  => 'prisoner.getTransfer' ,'uses'  => 'PrisonerController@getTransfer']);
+    Route::post('prisoner/transfer',['as'  => 'prisoner.postTransfer' ,'uses'  => 'PrisonerController@postTransfer']);
+
+    Route::get('prisoner/acquit',['as'  => 'prisoner.getAcquit' ,'uses'  => 'PrisonerController@getAcquit']);
+    Route::post('prisoner/acquit',['as'  => 'prisoner.postAcquit' ,'uses'  => 'PrisonerController@postAcquit']);
+
+    Route::get('prisoner/rehab',['as'  => 'prisoner.getRehab' ,'uses'  => 'PrisonerController@getRehab']);
+    Route::post('prisoner/rehab',['as'  => 'prisoner.postRehab' ,'uses'  => 'PrisonerController@postRehab']);
+
     Route::resource('prisoner','PrisonerController');
     Route::resource('guard','GuardController');
-    Route::resource('cell','GuardController');
+    Route::resource('visitor','VisitorController');
 });
 
 Route::get('prisoner-pic/{path}',function($path){

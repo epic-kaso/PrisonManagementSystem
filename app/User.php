@@ -11,15 +11,15 @@ use Illuminate\Contracts\Auth\CanResetPassword as CanResetPasswordContract;
 /**
  * PrisonManagementSystem\User
  *
- * @property integer $id 
- * @property string $first_name 
- * @property string $last_name 
- * @property string $email 
- * @property string $password 
- * @property string $role 
- * @property string $remember_token 
- * @property \Carbon\Carbon $created_at 
- * @property \Carbon\Carbon $updated_at 
+ * @property integer $id
+ * @property string $first_name
+ * @property string $last_name
+ * @property string $email
+ * @property string $password
+ * @property string $role
+ * @property string $remember_token
+ * @property \Carbon\Carbon $created_at
+ * @property \Carbon\Carbon $updated_at
  * @method static \Illuminate\Database\Query\Builder|\PrisonManagementSystem\User whereId($value)
  * @method static \Illuminate\Database\Query\Builder|\PrisonManagementSystem\User whereFirstName($value)
  * @method static \Illuminate\Database\Query\Builder|\PrisonManagementSystem\User whereLastName($value)

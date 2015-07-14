@@ -87,8 +87,11 @@
                                                             </div>
                                                             <div class="col-sm-6">
                                                                 <div class="form-group">
-                                                                    <input type="text" name="address" id="occupation" class="form-control" required>
-                                                                    <label for="occupation" class="control-label">Address</label>
+                                                                    <select name="sex" id="occupation" class="form-control" required>
+                                                                        <option value="male">Male</option>
+                                                                        <option value="female">Female</option>
+                                                                    </select>
+                                                                    <label for="occupation" class="control-label">Sex</label>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -104,6 +107,20 @@
                                                                 <div class="form-group">
                                                                     <input type="text" name="next_of_kin_phone" id="phone" class="form-control" required>
                                                                     <label for="phone" class="control-label">Next of Kin Phone Number</label>
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="col-sm-12">
+                                                                <div class="form-group">
+                                                                    <input type="text" name="address" id="occupation" class="form-control" required>
+                                                                    <label for="occupation" class="control-label">Address</label>
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="col-sm-12">
+                                                                <div class="form-group">
+                                                                    <input type="text" name="medical_status" id="occupation" class="form-control" required>
+                                                                    <label for="occupation" class="control-label">Medical Status/Disabilities</label>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -169,7 +186,14 @@
                                                                 </div>
                                                             </div>
 
-                                                            <div class="col-sm-12">
+                                                            <div class="col-sm-6">
+                                                                <div class="form-group">
+                                                                    <input type="text" name="crime_code" id="crime_code" class="form-control">
+                                                                    <label for="crime_code" class="control-label">Crime Code</label>
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="col-sm-6">
                                                                 <div class="form-group">
                                                                     <input type="text" name="arresting_officer" id="arresting_officer" class="form-control">
                                                                     <label for="arresting_officer" class="control-label">Arresting Officer</label>
@@ -196,6 +220,18 @@
                                                                     <label for="end_date" class="control-label">Sentence End Date</label>
                                                                 </div>
                                                             </div>
+                                                            <div class="col-sm-6">
+                                                                <div class="form-group">
+                                                                    <input type="text" name="court" required id="court" class="form-control">
+                                                                    <label>Court</label>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-sm-6">
+                                                                <div class="form-group">
+                                                                    <input type="text" name="cell_roommate" required id="cell_roommate" class="form-control">
+                                                                    <label>Cell Roommate</label>
+                                                                </div>
+                                                            </div>
                                                         </div>
 
                                                         <div class="form-group">
@@ -204,9 +240,7 @@
                                                     </div><!--end #step3 -->
                                                 </div><!--end .tab-content -->
                                                 <ul class="pager wizard">
-                                                    <li class="previous first"><a class="btn-raised" href="javascript:void(0);">First</a></li>
                                                     <li class="previous"><a class="btn-raised" href="javascript:void(0);">Previous</a></li>
-                                                    <li class="next last"><a class="btn-raised" href="javascript:void(0);">Last</a></li>
                                                     <li class="next"><a class="btn-raised" href="javascript:void(0);">Next</a></li>
                                                 </ul>
                                             </form>
