@@ -52,13 +52,13 @@
                                                         <div class="row">
                                                             <div class="col-sm-6">
                                                                 <div class="form-group">
-                                                                    <input type="text" name="first_name" id="firstname" class="form-control" required>
+                                                                    <input type="text" value="{{ Session::get('first_name') }}" name="first_name" id="firstname" class="form-control" required>
                                                                     <label for="firstname" class="control-label">First name</label>
                                                                 </div>
                                                             </div>
                                                             <div class="col-sm-6">
                                                                 <div class="form-group">
-                                                                    <input type="text" name="last_name" id="lastname" class="form-control" required>
+                                                                    <input type="text" value="{{ Session::get('last_name') }}" name="last_name" id="lastname" class="form-control" required>
                                                                     <label for="lastname" class="control-label">Last name</label>
                                                                 </div>
                                                             </div>
@@ -66,13 +66,13 @@
                                                         <div class="row">
                                                             <div class="col-sm-6">
                                                                 <div class="form-group">
-                                                                    <input type="text" name="genotype" id="genotype" class="form-control" required>
+                                                                    <input type="text" value="{{ Session::get('genotype') }}" name="genotype" id="genotype" class="form-control" required>
                                                                     <label for="genotype" class="control-label">Genotype</label>
                                                                 </div>
                                                             </div>
                                                             <div class="col-sm-6">
                                                                 <div class="form-group">
-                                                                    <input type="text" name="blood_group" id="blood_group" class="form-control" required>
+                                                                    <input type="text" value="{{ Session::get('blood_group') }}" name="blood_group" id="blood_group" class="form-control" required>
                                                                     <label for="blood_group" class="control-label">Blood Group</label>
                                                                 </div>
                                                             </div>
@@ -81,7 +81,7 @@
                                                         <div class="row">
                                                             <div class="col-sm-6">
                                                                 <div class="form-group">
-                                                                    <input type="date" name="birth_date" id="birthdate" class="form-control" required>
+                                                                    <input type="date" value="{{ Session::get('birth_date') }}" name="birth_date" id="birthdate" class="form-control" required>
                                                                     <label for="birthdate" class="control-label">Birth Date</label>
                                                                 </div>
                                                             </div>
@@ -99,27 +99,27 @@
                                                         <div class="row">
                                                             <div class="col-sm-6">
                                                                 <div class="form-group">
-                                                                    <input type="text" name="next_of_kin" id="next_of_kin" class="form-control" required>
+                                                                    <input type="text" value="{{ Session::get('next_of_kin') }}" name="next_of_kin" id="next_of_kin" class="form-control" required>
                                                                     <label for="next_of_kin" class="control-label">Next of Kin</label>
                                                                 </div>
                                                             </div>
                                                             <div class="col-sm-6">
                                                                 <div class="form-group">
-                                                                    <input type="text" name="next_of_kin_phone" id="phone" class="form-control" required>
+                                                                    <input type="text" value="{{ Session::get('next_of_kin_phone') }}" name="next_of_kin_phone" id="phone" class="form-control" required>
                                                                     <label for="phone" class="control-label">Next of Kin Phone Number</label>
                                                                 </div>
                                                             </div>
 
                                                             <div class="col-sm-12">
                                                                 <div class="form-group">
-                                                                    <input type="text" name="address" id="occupation" class="form-control" required>
+                                                                    <input type="text" value="{{ Session::get('address') }}" name="address" id="occupation" class="form-control" required>
                                                                     <label for="occupation" class="control-label">Address</label>
                                                                 </div>
                                                             </div>
 
                                                             <div class="col-sm-12">
                                                                 <div class="form-group">
-                                                                    <input type="text" name="medical_status" id="occupation" class="form-control" required>
+                                                                    <input type="text" value="{{ Session::get('medical_status') }}" name="medical_status" id="occupation" class="form-control" required>
                                                                     <label for="occupation" class="control-label">Medical Status/Disabilities</label>
                                                                 </div>
                                                             </div>
@@ -181,21 +181,21 @@
                                                         <div class="row">
                                                             <div class="col-sm-12">
                                                                 <div class="form-group">
-                                                                    <input type="text" name="crime" id="crime" class="form-control" required>
+                                                                    <input type="text" value="{{ Session::get('crime') }}" name="crime" id="crime" class="form-control" required>
                                                                     <label for="crime" class="control-label">Crime</label>
                                                                 </div>
                                                             </div>
 
                                                             <div class="col-sm-6">
                                                                 <div class="form-group">
-                                                                    <input type="text" name="crime_code" id="crime_code" class="form-control">
+                                                                    <input type="text" value="{{ Session::get('crime_code') }}" name="crime_code" id="crime_code" class="form-control">
                                                                     <label for="crime_code" class="control-label">Crime Code</label>
                                                                 </div>
                                                             </div>
 
                                                             <div class="col-sm-6">
                                                                 <div class="form-group">
-                                                                    <input type="text" name="arresting_officer" id="arresting_officer" class="form-control">
+                                                                    <input type="text" value="{{ Session::get('arresting_officer') }}" name="arresting_officer" id="arresting_officer" class="form-control">
                                                                     <label for="arresting_officer" class="control-label">Arresting Officer</label>
                                                                 </div>
                                                             </div>
@@ -204,31 +204,31 @@
                                                     <div class="tab-pane" id="step3">
                                                         <br/><br/>
                                                         <div class="form-group">
-                                                            <textarea name="sentence" required id="sentence" class="form-control" rows="3"></textarea>
+                                                            <textarea name="sentence" required id="sentence" class="form-control" rows="3">{{ Session::get('sentence') }}</textarea>
                                                             <label>Sentence</label>
                                                         </div>
                                                         <div class="row">
                                                             <div class="col-sm-6">
                                                                 <div class="form-group">
-                                                                    <input type="date" name="sentence_start" id="start_date" class="form-control" required>
+                                                                    <input type="date" value="{{ Session::get('sentence_start') }}" name="sentence_start" id="start_date" class="form-control" required>
                                                                     <label for="start_date" class="control-label">Sentence Start Date</label>
                                                                 </div>
                                                             </div>
                                                             <div class="col-sm-6">
                                                                 <div class="form-group">
-                                                                    <input type="date" name="sentence_end" id="end_date" class="form-control" required>
+                                                                    <input type="date" value="{{ Session::get('sentence_end') }}" name="sentence_end" id="end_date" class="form-control" required>
                                                                     <label for="end_date" class="control-label">Sentence End Date</label>
                                                                 </div>
                                                             </div>
                                                             <div class="col-sm-6">
                                                                 <div class="form-group">
-                                                                    <input type="text" name="court" required id="court" class="form-control">
+                                                                    <input type="text" value="{{ Session::get('court') }}" name="court" required id="court" class="form-control">
                                                                     <label>Court</label>
                                                                 </div>
                                                             </div>
                                                             <div class="col-sm-6">
                                                                 <div class="form-group">
-                                                                    <input type="text" name="cell_roommate" required id="cell_roommate" class="form-control">
+                                                                    <input type="text" value="{{ Session::get('cell_roommate') }}" name="cell_roommate" required id="cell_roommate" class="form-control">
                                                                     <label>Cell Roommate</label>
                                                                 </div>
                                                             </div>

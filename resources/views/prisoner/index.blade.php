@@ -28,21 +28,6 @@
                                     </div>
                                 </div>
                             </div>
-                            <div id="data-table-selection-header" class="bootgrid-header container-fluid">
-                                <div class="row">
-                                    <div class="col-sm-6 actionBar">
-                                        <div class="search form-group">
-                                            <div class="input-group">
-                        <span class="input-group-addon">
-                            <span class="md md-search"></span>
-                        </span>
-                                                <input type="text" ng-model="search_invoice" class="search-field form-control"
-                                                       placeholder="Search">
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
                             <div class="table-responsive">
                                 <table class="table table-hover">
                                     <thead>
@@ -68,17 +53,24 @@
                                         <td>{{ $prisoner->first_name }}</td>
                                         <td>{{ \Carbon\Carbon::parse($prisoner->sentence_end)->toFormattedDateString() }}</td>
                                         <td class="text-right">
-                                            <a href="{{ route('prisoner.show',$prisoner) }}" class="btn btn-icon-toggle" data-toggle="tooltip" data-placement="top" data-original-title="View">
+                                            <a href="{{ route('prisoner.edit',$prisoner) }}" class="btn btn-icon-toggle"
+                                               data-toggle="tooltip" data-placement="top" data-original-title="View">
+                                                <i class="fa fa-pencil"></i>
+                                            </a>
+                                            <a href="{{ route('prisoner.show',$prisoner) }}" class="btn btn-icon-toggle"
+                                               data-toggle="tooltip" data-placement="top" data-original-title="View">
                                                 <i class="fa fa-eye"></i>
                                             </a>
-                                            <button type="button" ng-click="deleteInvoice(invoice,$index,$event)" class="btn btn-icon-toggle" data-toggle="tooltip" data-placement="top" data-original-title="Delete row"><i class="fa fa-trash-o"></i></button>
+                                            <a data-delete href="{{ route('prisoner.destroy',['id'=> $prisoner->id]) }}"
+                                               class="btn btn-icon-toggle" data-toggle="tooltip" data-placement="top"
+                                               data-original-title="Delete row"><i class="fa fa-trash-o"></i></a>
                                         </td>
                                     </tr>
 
                                     @empty
                                     <tr>
                                         <td colspan="9" class="text-center text-muted">
-                                            <h5> No Invoice yet, please make a sale first.</h5>
+                                            <h5> No Prisoner yet.</h5>
                                         </td>
                                     </tr>
                                     @endforelse

@@ -12,67 +12,75 @@
         <div id="content">
             <section>
                 <div class="section-body">
+                    @include('partials.error')
                     <div class="row">
-                        <!-- BEGIN ALERT - REVENUE -->
-                        <div class="col-md-3 col-sm-6">
-                            <div class="card">
-                                <div class="card-body no-padding">
-                                    <div class="alert alert-callout alert-success no-margin">
-                                        <h1 class="pull-right text-success"><i class="md md-timer"></i></h1>
-                                        <strong class="text-xl">54</strong><br/>
-                                        <span class="opacity-50">Prisoners</span>
+                        <div class="card">
+                            <div class="card-head">
+                                <header>All Guards
+                                </header>
+
+                                <div class="tools">
+                                    <div class="btn-group">
+                                        <button class="btn ink-reaction btn-danger mr-10" title="Delete">
+                                            <i class="fa fa-trash-o"></i>
+                                            <span class="hide-on-mobile">Delete</span>
+                                        </button>
                                     </div>
-                                </div><!--end .card-body -->
-                            </div><!--end .card -->
-                        </div><!--end .col -->
-                        <!-- END ALERT - REVENUE -->
+                                </div>
+                            </div>
+                            <div class="table-responsive">
+                                <table class="table table-hover">
+                                    <thead>
+                                    <tr>
+                                        <th>
+                                            <input type="checkbox">
+                                        </th>
+                                        <th>S/N</th>
+                                        <th>Last Name</th>
+                                        <th>First Name</th>
+                                        <th>Email</th>
+                                        <th class="text-right">Actions</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    @forelse($guards as $guard)
+                                        <tr>
+                                            <td>
+                                                <input type="checkbox">
+                                            </td>
+                                            <td>{{ $guard->id }}</td>
+                                            <td>{{ $guard->last_name }}</td>
+                                            <td>{{ $guard->first_name }}</td>
+                                            <td>{{ $guard->email }}</td>
+                                            <td class="text-right">
+                                                <a href="{{ route('guard.edit',$guard) }}" class="btn btn-icon-toggle"
+                                                   data-toggle="tooltip" data-placement="top" data-original-title="View">
+                                                    <i class="fa fa-pencil"></i>
+                                                </a>
+                                                <a href="{{ route('guard.show',$guard) }}" class="btn btn-icon-toggle"
+                                                   data-toggle="tooltip" data-placement="top" data-original-title="View">
+                                                    <i class="fa fa-eye"></i>
+                                                </a>
+                                                <a data-delete href="{{ route('guard.destroy',['id'=> $guard->id]) }}"
+                                                   class="btn btn-icon-toggle" data-toggle="tooltip" data-placement="top"
+                                                   data-original-title="Delete row"><i class="fa fa-trash-o"></i></a>
+                                            </td>
+                                        </tr>
 
-                        <!-- BEGIN ALERT - VISITS -->
-                        <div class="col-md-3 col-sm-6">
-                            <div class="card">
-                                <div class="card-body no-padding">
-                                    <div class="alert alert-callout alert-success no-margin">
-                                        <h1 class="pull-right text-success"><i class="md md-timer"></i></h1>
-                                        <strong class="text-xl">54</strong><br/>
-                                        <span class="opacity-50">Cells</span>
-                                    </div>
-                                </div><!--end .card-body -->
-                            </div><!--end .card -->
-                        </div><!--end .col -->
-                        <!-- END ALERT - VISITS -->
+                                    @empty
+                                        <tr>
+                                            <td colspan="9" class="text-center text-muted">
+                                                <h5> No Guard yet</h5>
+                                            </td>
+                                        </tr>
+                                    @endforelse
+                                    </tbody>
+                                </table>
 
-                        <!-- BEGIN ALERT - BOUNCE RATES -->
-                        <div class="col-md-3 col-sm-6">
-                            <div class="card">
-                                <div class="card-body no-padding">
-                                    <div class="alert alert-callout alert-success no-margin">
-                                        <h1 class="pull-right text-success"><i class="md md-timer"></i></h1>
-                                        <strong class="text-xl">54</strong><br/>
-                                        <span class="opacity-50">Guards</span>
-                                    </div>
-                                </div><!--end .card-body -->
-                            </div><!--end .card -->
-                        </div><!--end .col -->
-                        <!-- END ALERT - BOUNCE RATES -->
-
-                        <!-- BEGIN ALERT - TIME ON SITE -->
-                        <div class="col-md-3 col-sm-6">
-                            <div class="card">
-                                <div class="card-body no-padding">
-                                    <div class="alert alert-callout alert-success no-margin">
-                                        <h1 class="pull-right text-success"><i class="md md-timer"></i></h1>
-                                        <strong class="text-xl">54</strong><br/>
-                                        <span class="opacity-50">Bails</span>
-                                    </div>
-                                </div><!--end .card-body -->
-                            </div><!--end .card -->
-                        </div><!--end .col -->
-                        <!-- END ALERT - TIME ON SITE -->
-
-                    </div><!--end .row -->
-                    <div class="row">
-
-                    </div>
+                                {!! $guards->render() !!}
+                            </div>
+                        </div>
+                    </div><!--end .section-body -->
                 </div><!--end .section-body -->
             </section>
         </div><!--end #content-->

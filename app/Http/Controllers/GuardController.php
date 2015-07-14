@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 
 use PrisonManagementSystem\Http\Requests;
 use PrisonManagementSystem\Http\Controllers\Controller;
+use PrisonManagementSystem\User;
+use Session;
 
 class GuardController extends Controller
 {
@@ -16,7 +18,8 @@ class GuardController extends Controller
      */
     public function index()
     {
-        //
+        $guards = User::guards()->paginate(30);
+        return view('guard.index',['guards' => $guards]);
     }
 
     /**
@@ -26,7 +29,7 @@ class GuardController extends Controller
      */
     public function create()
     {
-        //
+        return view('guard.create');
     }
 
     /**
@@ -47,7 +50,8 @@ class GuardController extends Controller
      */
     public function show($id)
     {
-        //
+        $guard = User::guards()->whereId($id)->firstOrFail();
+        return view('guard.show',['guard' => $guard]);
     }
 
     /**
@@ -58,7 +62,8 @@ class GuardController extends Controller
      */
     public function edit($id)
     {
-        //
+        $guard = User::guards()->whereId($id)->firstOrFail();
+        return view('guard.edit',['guard' => $guard]);
     }
 
     /**
@@ -80,6 +85,9 @@ class GuardController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $guard = User::guards()->whereId($id)->firstOrFail();
+        $guard->delete();
+        Session::flash('success_msg','Guard Deleted Successfully');
+        return redirect()->route('guard.index');
     }
 }

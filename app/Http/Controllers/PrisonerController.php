@@ -80,7 +80,9 @@ class PrisonerController extends Controller
         $validation = $this->validator(Request::all());
 
         if($validation->fails()){
-            return redirect()->back()->withErrors($validation);
+            return redirect()->back()
+                ->withInput(Request::all())
+                ->withErrors($validation);
         }
 
         $data = Request::only($this->requiredkeys());

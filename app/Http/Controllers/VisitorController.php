@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 
 use PrisonManagementSystem\Http\Requests;
 use PrisonManagementSystem\Http\Controllers\Controller;
+use PrisonManagementSystem\Visitor;
+use Session;
 
 class VisitorController extends Controller
 {
@@ -16,7 +18,8 @@ class VisitorController extends Controller
      */
     public function index()
     {
-        //
+        $visitors = Visitor::paginate(30);
+        return view('visitors.index',['visitors' => $visitors]);
     }
 
     /**
@@ -26,7 +29,7 @@ class VisitorController extends Controller
      */
     public function create()
     {
-        //
+        return view('visitors.create');
     }
 
     /**
@@ -47,7 +50,8 @@ class VisitorController extends Controller
      */
     public function show($id)
     {
-        //
+        $visitor = Visitor::findOrFail($id);
+        return view('visitors.show',['visitor' => $visitor]);
     }
 
     /**
@@ -80,6 +84,9 @@ class VisitorController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $visitor = Visitor::findOrFail($id);
+        $visitor->delete();
+        Session::flash('success_msg','Visit Deleted Successfully');
+        return redirect()->route('visitor.index');
     }
 }
