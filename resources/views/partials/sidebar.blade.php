@@ -7,7 +7,7 @@
         </div>
         <div class="expanded">
             <a href="/">
-                <span class="text-lg text-bold text-primary ">P.M.S</span>
+                <span class="text-lg text-bold text-primary ">P.I.M.S</span>
             </a>
         </div>
     </div>
@@ -34,9 +34,32 @@
                 <ul>
                     <li><a href="{{ route('prisoner.create') }}" ><span class="title">Add Prison</span></a></li>
                     <li><a href="{{ route('prisoner.index') }}" ><span class="title">List of Prisoners</span></a></li>
-                    <li><a href="{{ route('prisoner.getTransfer') }}" ><span class="title">Transfer Prisoner</span></a></li>
-                    <li><a href="{{ route('prisoner.getAcquit') }}" ><span class="title">Acquit Prisoner</span></a></li>
-                    <li><a href="{{ route('prisoner.getRehab') }}" ><span class="title">Punishment & Rehab</span></a></li>
+                </ul><!--end /submenu -->
+            </li><!--end /menu-li -->
+            <!-- END EMAIL -->
+
+            <!-- BEGIN EMAIL -->
+            <li class="{{ str_is('transfer*',\Request::path())  ? 'active' : '' }} gui-folder">
+                <a>
+                    <div class="gui-icon"><i class="fa fa-exchange"></i></div>
+                    <span class="title">Prisoner Transfer</span>
+                </a>
+                <!--start submenu -->
+                <ul>
+                    <li><a href="{{ route('transfer.create') }}" ><span class="title">Transfer Prisoner</span></a></li>
+                    <li><a href="{{ route('transfer.index') }}" ><span class="title">All Prisoner Transfers</span></a></li>
+                </ul><!--end /submenu -->
+            </li><!--end /menu-li -->
+
+            <li class="{{ str_is('activities*',\Request::path())  ? 'active' : '' }} gui-folder">
+                <a>
+                    <div class="gui-icon"><i class="fa fa-crosshairs"></i></div>
+                    <span class="title">Prison Activities</span>
+                </a>
+                <!--start submenu -->
+                <ul>
+                    <li><a href="{{ url('activities/acquit') }}" ><span class="title">Acquit Prisoner</span></a></li>
+                    <li><a href="{{ url('activities/rehab') }}" ><span class="title">Punishment & Rehab</span></a></li>
                 </ul><!--end /submenu -->
             </li><!--end /menu-li -->
             <!-- END EMAIL -->

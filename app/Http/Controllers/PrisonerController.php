@@ -220,34 +220,4 @@ class PrisonerController extends Controller
     {
         return "prisoner_".$prisoner->id."_".$baseName;
     }
-
-    public function getTransfer()
-    {
-        return view('prisoner.transfer');
-    }
-
-    public function postTransfer()
-    {
-
-    }
-
-    public function getAcquit()
-    {
-        return view('prisoner.acquit');
-    }
-
-    public function postAcquit()
-    {
-
-    }
-
-    public function getRehab()
-    {
-        return view('prisoner.rehab');
-    }
-
-    public function postRehab()
-    {
-
-    }
 }

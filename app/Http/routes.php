@@ -15,16 +15,9 @@ Route::controller('password','Auth\PasswordController');
 
 Route::group(['middleware' => 'auth'],function(){
     Route::get('/','DashboardController@index');
-    Route::get('prisoner/transfer',['as'  => 'prisoner.getTransfer' ,'uses'  => 'PrisonerController@getTransfer']);
-    Route::post('prisoner/transfer',['as'  => 'prisoner.postTransfer' ,'uses'  => 'PrisonerController@postTransfer']);
-
-    Route::get('prisoner/acquit',['as'  => 'prisoner.getAcquit' ,'uses'  => 'PrisonerController@getAcquit']);
-    Route::post('prisoner/acquit',['as'  => 'prisoner.postAcquit' ,'uses'  => 'PrisonerController@postAcquit']);
-
-    Route::get('prisoner/rehab',['as'  => 'prisoner.getRehab' ,'uses'  => 'PrisonerController@getRehab']);
-    Route::post('prisoner/rehab',['as'  => 'prisoner.postRehab' ,'uses'  => 'PrisonerController@postRehab']);
-
     Route::resource('prisoner','PrisonerController');
+    Route::resource('transfer','PrisonerTransferController');
+    Route::controller('activities','PrisonActivitiesController');
     Route::resource('guard','GuardController');
     Route::resource('visitor','VisitorController');
 });
