@@ -32,6 +32,10 @@ use Illuminate\Contracts\Auth\CanResetPassword as CanResetPasswordContract;
  * @method static \Illuminate\Database\Query\Builder|\PrisonManagementSystem\User admins()
  * @method static \Illuminate\Database\Query\Builder|\PrisonManagementSystem\User guards()
  * @method static \Illuminate\Database\Query\Builder|\PrisonManagementSystem\User createGuard($input)
+ * @property string $sex 
+ * @property string $address 
+ * @method static \Illuminate\Database\Query\Builder|\PrisonManagementSystem\User whereSex($value)
+ * @method static \Illuminate\Database\Query\Builder|\PrisonManagementSystem\User whereAddress($value)
  */
 class User extends Model implements AuthenticatableContract, CanResetPasswordContract
 {
@@ -49,7 +53,7 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
      *
      * @var array
      */
-    protected $fillable = ['last_name','first_name', 'email', 'password'];
+    protected $fillable = ['last_name','first_name', 'email', 'password','sex','address'];
 
     /**
      * The attributes excluded from the model's JSON form.
