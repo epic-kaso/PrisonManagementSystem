@@ -84,7 +84,8 @@ class VisitorController extends Controller
      */
     public function edit($id)
     {
-        //
+        $visitor = Visitor::findOrFail($id);
+        return view('visitors.edit',['visitor' => $visitor]);
     }
 
     /**
@@ -95,7 +96,17 @@ class VisitorController extends Controller
      */
     public function update($id)
     {
-        //
+        $visitor = Visitor::findOrFail($id);
+
+        $data = Request::only($this->requiredkeys());
+
+        $visitor->fill($data);
+
+        $visitor->save();
+
+        return redirect(route('visitor.show',['id'=> $visitor->id]))->with('success','Updated Successfully');
+
+
     }
 
     /**

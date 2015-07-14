@@ -39,7 +39,7 @@ class AuthController extends Controller
      * @param  array  $data
      * @return \Illuminate\Contracts\Validation\Validator
      */
-    protected function validator(array $data)
+    protected function validator(array $data,array $keys = null)
     {
         return Validator::make($data, [
             'name' => 'required|max:255',

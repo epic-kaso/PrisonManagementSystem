@@ -19,6 +19,14 @@ class GuardController extends Controller
         'sex' => '',
         'address' => '',
     ];
+
+    protected $updateRules = [
+        'last_name' => 'max:255',
+        'first_name' => 'max:255',
+        'password' => 'min:4|confirmed',
+        'sex' => '',
+        'address' => '',
+    ];
     /**
      * Display a listing of the resource.
      *
@@ -96,7 +104,29 @@ class GuardController extends Controller
      */
     public function update($id)
     {
-        //
+        $validation = $this->validator(Request::all(),$this->updateRules);
+
+        if($validation->fails()){
+            return redirect()->back()
+                ->withInput(Request::all())
+                ->withErrors($validation);
+        }
+
+        $guard = User::guards()->whereId($id)->firstOrFail();
+
+        $data = Request::only($this->requiredkeys($this->updateRules));
+
+        if(isset($data['password']) && !empty($data['password'])){
+            $data['password'] = bcrypt($data['password']);
+        }else{
+            unset($data['password']);
+        }
+
+        $guard->fill($data);
+
+        $guard->save();
+
+        return redirect(route('guard.show',['id'=> $guard->id]))->with('success','Updated Successfully');
     }
 
     /**

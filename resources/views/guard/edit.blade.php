@@ -2,86 +2,96 @@
 
 @section('content')
 
-    <!-- BEGIN HEADER-->
-    @include('partials.header')
-    <!-- END HEADER-->
+        <!-- BEGIN HEADER-->
+@include('partials.header')
+        <!-- END HEADER-->
 
-    <!-- BEGIN BASE-->
-    <div id="base">
-        <!-- BEGIN CONTENT-->
-        <div id="content">
-            <section>
-                <div class="section-body">
+<!-- BEGIN BASE-->
+<div id="base">
+    <!-- BEGIN CONTENT-->
+    <div id="content">
+        <section>
+            <div class="section-body">
+                @include('partials.error')
+                <div class="row">
+                    <!-- BEGIN VALIDATION FORM WIZARD -->
                     <div class="row">
-                        <!-- BEGIN ALERT - REVENUE -->
-                        <div class="col-md-3 col-sm-6">
+                        <div class="col-lg-12">
                             <div class="card">
-                                <div class="card-body no-padding">
-                                    <div class="alert alert-callout alert-success no-margin">
-                                        <h1 class="pull-right text-success"><i class="md md-timer"></i></h1>
-                                        <strong class="text-xl">54</strong><br/>
-                                        <span class="opacity-50">Prisoners</span>
-                                    </div>
+                                <div class="card-head">
+                                    <header>
+                                        Edit Guard, <strong>{{  $guard->email  }}</strong>
+                                    </header>
+                                </div>
+                                <div class="card-body ">
+                                    <form action="{{ route('guard.update',$guard) }}" method="post" class="form floating-label form-validation" role="form" novalidate="novalidate">
+                                        <input type="hidden" name="_method" value="PUT">
+                                        <div class="row">
+                                            <div class="col-sm-6">
+                                                <div class="form-group">
+                                                    <input type="text" value="{{  $guard->first_name }}" name="first_name" id="firstname" class="form-control" required>
+                                                    <label for="firstname" class="control-label">First name</label>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <div class="form-group">
+                                                    <input type="text" value="{{  $guard->last_name }}" name="last_name" id="lastname" class="form-control" required>
+                                                    <label for="lastname" class="control-label">Last name</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-sm-6">
+                                                <div class="form-group">
+                                                    <select name="sex" id="occupation" class="form-control" required>
+                                                        <option {{ $guard->sex == 'male' ? 'selected' : ''  }} value="male">Male</option>
+                                                        <option {{ $guard->sex == 'female' ? 'selected' : ''  }} value="female">Female</option>
+                                                    </select>
+                                                    <label for="occupation" class="control-label">Sex</label>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <div class="form-group">
+                                                    <input type="text"  value="{{  $guard->address }}" name="address" id="address" class="form-control" required>
+                                                    <label for="address" class="control-label">Address</label>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="col-sm-6">
+                                                <div class="form-group">
+                                                    <input type="password" value="" name="password" id="password" class="form-control" required>
+                                                    <label for="password" class="control-label">New Password</label>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <div class="form-group">
+                                                    <input type="password" value="" name="password_confirmation" id="password_confirmation" class="form-control" required>
+                                                    <label for="password_confirmation" class="control-label">New Password Confirmation</label>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <input class="btn btn-primary ink-reaction" type="submit" value="Update" />
+                                        </div>
+                                    </form>
                                 </div><!--end .card-body -->
                             </div><!--end .card -->
                         </div><!--end .col -->
-                        <!-- END ALERT - REVENUE -->
-
-                        <!-- BEGIN ALERT - VISITS -->
-                        <div class="col-md-3 col-sm-6">
-                            <div class="card">
-                                <div class="card-body no-padding">
-                                    <div class="alert alert-callout alert-success no-margin">
-                                        <h1 class="pull-right text-success"><i class="md md-timer"></i></h1>
-                                        <strong class="text-xl">54</strong><br/>
-                                        <span class="opacity-50">Cells</span>
-                                    </div>
-                                </div><!--end .card-body -->
-                            </div><!--end .card -->
-                        </div><!--end .col -->
-                        <!-- END ALERT - VISITS -->
-
-                        <!-- BEGIN ALERT - BOUNCE RATES -->
-                        <div class="col-md-3 col-sm-6">
-                            <div class="card">
-                                <div class="card-body no-padding">
-                                    <div class="alert alert-callout alert-success no-margin">
-                                        <h1 class="pull-right text-success"><i class="md md-timer"></i></h1>
-                                        <strong class="text-xl">54</strong><br/>
-                                        <span class="opacity-50">Guards</span>
-                                    </div>
-                                </div><!--end .card-body -->
-                            </div><!--end .card -->
-                        </div><!--end .col -->
-                        <!-- END ALERT - BOUNCE RATES -->
-
-                        <!-- BEGIN ALERT - TIME ON SITE -->
-                        <div class="col-md-3 col-sm-6">
-                            <div class="card">
-                                <div class="card-body no-padding">
-                                    <div class="alert alert-callout alert-success no-margin">
-                                        <h1 class="pull-right text-success"><i class="md md-timer"></i></h1>
-                                        <strong class="text-xl">54</strong><br/>
-                                        <span class="opacity-50">Bails</span>
-                                    </div>
-                                </div><!--end .card-body -->
-                            </div><!--end .card -->
-                        </div><!--end .col -->
-                        <!-- END ALERT - TIME ON SITE -->
-
                     </div><!--end .row -->
-                    <div class="row">
+                    <!-- END VALIDATION FORM WIZARD -->
+                </div>
+            </div><!--end .section-body -->
+        </section>
+    </div><!--end #content-->
+    <!-- END CONTENT -->
 
-                    </div>
-                </div><!--end .section-body -->
-            </section>
-        </div><!--end #content-->
-        <!-- END CONTENT -->
+    <!-- BEGIN MENUBAR-->
+    @include('partials.sidebar')
+            <!-- END MENUBAR -->
 
-        <!-- BEGIN MENUBAR-->
-        @include('partials.sidebar')
-        <!-- END MENUBAR -->
-
-    </div><!--end #base-->
-    <!-- END BASE -->
+</div><!--end #base-->
+<!-- END BASE -->
 @endsection

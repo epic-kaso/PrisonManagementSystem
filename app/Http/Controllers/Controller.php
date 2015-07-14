@@ -15,15 +15,22 @@ abstract class Controller extends BaseController
     /**
      * Get a validator for an incoming registration request.
      *
-     * @param  array  $data
+     * @param  array $data
+     * @param array $rules
      * @return \Illuminate\Contracts\Validation\Validator
      */
-    protected function validator(array $data)
+    protected function validator(array $data,array $rules = null )
     {
+        if(!empty($rules)){
+            return Validator::make($data,$rules);
+        }
         return Validator::make($data,$this->validationRules);
     }
 
-    protected function requiredkeys(){
+    protected function requiredkeys(array $rules = null){
+        if(!empty($rules)){
+            return array_keys($rules);
+        }
         return array_keys($this->validationRules);
     }
 }

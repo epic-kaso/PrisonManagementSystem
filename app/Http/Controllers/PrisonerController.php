@@ -151,23 +151,6 @@ class PrisonerController extends Controller
         return redirect(route('prisoner.index'));
     }
 
-
-
-    /**
-     * Get a validator for an incoming registration request.
-     *
-     * @param  array  $data
-     * @return \Illuminate\Contracts\Validation\Validator
-     */
-    protected function validator(array $data)
-    {
-        return Validator::make($data,$this->validationRules);
-    }
-
-    protected function requiredkeys(){
-        return array_keys($this->validationRules);
-    }
-
     private function uploadImage(UploadedFile $file,$name)
     {
         $ext = $file->getClientOriginalExtension();
