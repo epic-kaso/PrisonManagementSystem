@@ -6,7 +6,7 @@
                 <li class="header-nav-brand" >
                     <div class="brand-holder">
                         <a href="/">
-                            <span class="text-lg text-bold text-primary">P.I.M.S</span>
+                            <img src="/img/naija.png" alt="">
                         </a>
                     </div>
                 </li>
