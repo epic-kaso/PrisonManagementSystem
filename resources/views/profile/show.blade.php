@@ -21,12 +21,7 @@
 
                             <div class="tools">
                                 <div class="btn-group">
-                                    <a data-delete href="{{ route('guard.destroy',['id'=> $user->id]) }}" class="btn ink-reaction btn-danger mr-10" title="Delete">
-                                        <i class="fa fa-trash-o"></i>
-                                        <span class="hide-on-mobile">Delete</span>
-                                    </a>
-
-                                    <a href="{{ route('guard.edit',['id'=> $user->id]) }}" class="btn ink-reaction btn-info mr-10" title="Delete">
+                                    <a href="{{ route('profile.edit',['id'=> $user->id]) }}" class="btn ink-reaction btn-info mr-10" title="Delete">
                                         <i class="fa fa-pencil"></i>
                                         <span class="hide-on-mobile">Edit</span>
                                     </a>

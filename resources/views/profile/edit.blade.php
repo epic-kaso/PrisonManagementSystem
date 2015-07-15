@@ -24,7 +24,7 @@
                                     </header>
                                 </div>
                                 <div class="card-body ">
-                                    <form action="{{ route('guard.update',$user) }}" method="post" class="form floating-label form-validation" role="form" novalidate="novalidate">
+                                    <form action="{{ route('profile.update',$user) }}" method="post" class="form floating-label form-validation" role="form" novalidate="novalidate">
                                         <input type="hidden" name="_method" value="PUT">
                                         <div class="row">
                                             <div class="col-sm-6">
