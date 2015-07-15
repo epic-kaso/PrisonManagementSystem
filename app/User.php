@@ -75,4 +75,9 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
     {
         return static::create(array_merge(['role' => 'warder'],$input));
     }
+
+    public function isAdmin()
+    {
+        return $this->role  === 'admin';
+    }
 }

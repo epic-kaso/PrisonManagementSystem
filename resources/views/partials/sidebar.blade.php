@@ -63,17 +63,19 @@
             </li><!--end /menu-li -->
             <!-- END EMAIL -->
 
-            <li class="{{ str_is('guard*',\Request::path())  ? 'active' : '' }} gui-folder">
-                <a>
-                    <div class="gui-icon"><i class="fa fa-user-secret"></i></div>
-                    <span class="title">Guards</span>
-                </a>
-                <!--start submenu -->
-                <ul>
-                    <li><a href="{{ route('guard.create') }}" ><span class="title">Add Guard</span></a></li>
-                    <li><a href="{{ route('guard.index') }}" ><span class="title">List Guards</span></a></li>
-                </ul><!--end /submenu -->
-            </li><!--end /menu-li -->
+            @if(Auth::user()->isAdmin())
+                <li class="{{ str_is('guard*',\Request::path())  ? 'active' : '' }} gui-folder">
+                    <a>
+                        <div class="gui-icon"><i class="fa fa-user-secret"></i></div>
+                        <span class="title">Guards</span>
+                    </a>
+                    <!--start submenu -->
+                    <ul>
+                        <li><a href="{{ route('guard.create') }}" ><span class="title">Add Guard</span></a></li>
+                        <li><a href="{{ route('guard.index') }}" ><span class="title">List Guards</span></a></li>
+                    </ul><!--end /submenu -->
+                </li><!--end /menu-li -->
+            @endif
 
             <li class="{{ str_is('visitor*',\Request::path())  ? 'active' : '' }} gui-folder">
                 <a>
