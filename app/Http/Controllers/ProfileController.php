@@ -35,7 +35,7 @@ class ProfileController extends Controller
      */
     public function show($id)
     {
-        if(\Auth::id() !== $id){
+        if(\Auth::id() != $id){
             abort(404);
         }
 
@@ -52,7 +52,7 @@ class ProfileController extends Controller
      */
     public function edit($id)
     {
-        if(\Auth::id() !== $id){
+        if(\Auth::id() != $id){
             abort(404);
         }
 
@@ -69,7 +69,7 @@ class ProfileController extends Controller
      */
     public function update($id)
     {
-        if(\Auth::id() !== $id){
+        if(\Auth::id() != $id){
             abort(404);
         }
 
