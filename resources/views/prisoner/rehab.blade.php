@@ -14,90 +14,173 @@
             <div class="section-body">
                 @include('partials.error')
                 <div class="row">
-                    <!-- BEGIN VALIDATION FORM WIZARD -->
-                    <div class="row">
-                        <div class="col-lg-12">
-                            <div class="card">
-                                <div class="card-head">
-                                    <header>
-                                        Prisoners in Rehabilitation Programme
-                                    </header>
-                                </div>
-                                <div class="card-body ">
-                                    <form action="{{ route('guard.store') }}" method="post" class="form floating-label form-validation" role="form" novalidate="novalidate">
-                                        <div class="row">
-                                            <div class="col-sm-6">
-                                                <div class="form-group">
-                                                    <input type="text" value="{{ Session::get('first_name') }}" name="first_name" id="firstname" class="form-control" required>
-                                                    <label for="firstname" class="control-label">First name</label>
-                                                </div>
-                                            </div>
-                                            <div class="col-sm-6">
-                                                <div class="form-group">
-                                                    <input type="text" value="{{ Session::get('last_name') }}" name="last_name" id="lastname" class="form-control" required>
-                                                    <label for="lastname" class="control-label">Last name</label>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-sm-6">
-                                                <div class="form-group">
-                                                    <select name="sex" id="occupation" class="form-control" required>
-                                                        <option value="male">Male</option>
-                                                        <option value="female">Female</option>
-                                                    </select>
-                                                    <label for="occupation" class="control-label">Sex</label>
-                                                </div>
-                                            </div>
-                                            <div class="col-sm-6">
-                                                <div class="form-group">
-                                                    <input type="text" value="{{ Session::get('address') }}" name="address" id="address" class="form-control" required>
-                                                    <label for="address" class="control-label">Address</label>
-                                                </div>
-                                            </div>
-                                        </div>
+                   <div class="col-md-6 col-sm-6">
+                       <div class="card">
+                           <div class="card-head">
+                               <header>Prisoners in Solitary Confinement
+                               </header>
+                           </div>
+                           <div class="card-body">
+                               <form action="{{ url('activities/rehab?solitary=true') }}" method="post"
+                                     class="form floating-label form-validation form-inline"
+                                     role="form" novalidate="novalidate">
+                                   <div class="row">
+                                       <div class="col-sm-5">
+                                           <div class="form-group">
+                                               <select name="prisoner_id" id="prisoner" class="form-control form-inline" required>
+                                                   @foreach($prisoners as $prisoner)
+                                                       <option value="{{ $prisoner->id }}">{{ $prisoner->last_name .' '. $prisoner->first_name }}</option>
+                                                   @endforeach
+                                               </select>
+                                               <label for="occupation" class="control-label">Prisoner</label>
+                                           </div>
+                                       </div>
+                                       <div class="col-sm-5">
+                                           <div class="form-group">
+                                               <input type="text" class="form-control form-inline" name="offence">
+                                               <label for="destination" class="control-label">Offence</label>
+                                           </div>
+                                       </div>
+                                       <div class="col-sm-2">
+                                           <input class="btn btn-primary ink-reaction" type="submit" value="Add" />
+                                       </div>
+                                   </div>
+                               </form>
+                           </div>
+                           <div class="table-responsive">
+                               <table class="table table-hover">
+                                   <thead>
+                                   <tr>
+                                       <th>
+                                           <input type="checkbox">
+                                       </th>
+                                       <th>S/N</th>
+                                       <th>Last Name</th>
+                                       <th>First Name</th>
+                                       <th>Offence</th>
+                                       <th class="text-right">Actions</th>
+                                   </tr>
+                                   </thead>
+                                   <tbody>
+                                   @forelse($solitaryPrisoners as $solitary)
+                                       <tr>
+                                           <td>
+                                               <input type="checkbox">
+                                           </td>
+                                           <td>{{ $solitary->prisoner->id }}</td>
+                                           <td>{{ $solitary->prisoner->last_name }}</td>
+                                           <td>{{ $solitary->prisoner->first_name }}</td>
+                                           <td>{{ $solitary->offence }}</td>
+                                           <td class="text-right">
+                                               <a href="{{ route('prisoner.show',$solitary->prisoner) }}" class="btn btn-icon-toggle"
+                                                  data-toggle="tooltip" data-placement="top" data-original-title="View">
+                                                   <i class="fa fa-eye"></i>
+                                               </a>
+                                               <a data-delete href="{{ url('activities/rehab/'.$solitary->id.'?solitary=true') }}"
+                                                  class="btn btn-icon-toggle" data-toggle="tooltip" data-placement="top"
+                                                  data-original-title="Remove From Solitary"><i class="fa fa-trash-o"></i></a>
+                                           </td>
+                                       </tr>
 
-                                        <div class="row">
-                                            <div class="col-sm-6">
-                                                <div class="form-group">
-                                                    <input type="text" value="" name="prisoner_visited" id="address" class="form-control" required>
-                                                    <label for="address" class="control-label">Inmate Visited</label>
-                                                </div>
-                                            </div>
-                                            <div class="col-sm-6">
-                                                <div class="form-group">
-                                                    <input type="text" value="" name="purpose" id="address" class="form-control" required>
-                                                    <label for="address" class="control-label">Purpose of Visit</label>
-                                                </div>
-                                            </div>
-                                        </div>
+                                   @empty
+                                       <tr>
+                                           <td colspan="9" class="text-center text-muted">
+                                               <h5> No Prisoner yet.</h5>
+                                           </td>
+                                       </tr>
+                                   @endforelse
+                                   </tbody>
+                               </table>
 
-                                        <div class="row">
-                                            <div class="col-sm-6">
-                                                <div class="form-group">
-                                                    <input type="text" value="" name="time_in" id="timein" class="form-control" required>
-                                                    <label for="timein" class="control-label">Time In</label>
-                                                </div>
-                                            </div>
-                                            <div class="col-sm-6">
-                                                <div class="form-group">
-                                                    <input type="text" value="" name="time_out" id="timeout" class="form-control" required>
-                                                    <label for="timeout" class="control-label">Time Out</label>
-                                                </div>
-                                            </div>
-                                        </div>
+                               {!! $solitaryPrisoners->render() !!}
+                           </div>
+                       </div>
+                   </div>
 
-                                        <div class="form-group">
-                                            <input class="btn btn-primary ink-reaction" type="submit" value="Save" />
+                    <div class="col-md-6 col-sm-6">
+                        <div class="card">
+                            <div class="card-head">
+                                <header>Prisoners in Hard Labour
+                                </header>
+                            </div>
+                            <div class="card-body">
+                                <form action="{{ url('activities/rehab?hard-labour=true') }}" method="post"
+                                      class="form floating-label form-validation form-inline"
+                                      role="form" novalidate="novalidate">
+                                    <div class="row">
+                                        <div class="col-sm-5">
+                                            <div class="form-group">
+                                                <select name="prisoner_id" id="prisoner" class="form-control form-inline" required>
+                                                    @foreach($prisoners as $prisoner)
+                                                        <option value="{{ $prisoner->id }}">{{ $prisoner->last_name .' '. $prisoner->first_name }}</option>
+                                                    @endforeach
+                                                </select>
+                                                <label for="occupation" class="control-label">Prisoner</label>
+                                            </div>
                                         </div>
-                                    </form>
-                                </div><!--end .card-body -->
-                            </div><!--end .card -->
-                        </div><!--end .col -->
-                    </div><!--end .row -->
-                    <!-- END VALIDATION FORM WIZARD -->
-                </div>
-            </div><!--end .section-body -->
+                                        <div class="col-sm-5">
+                                            <div class="form-group">
+                                                <input type="text" class="form-control form-inline" name="offence">
+                                                <label for="destination" class="control-label">Offence</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-2">
+                                            <input class="btn btn-primary ink-reaction" type="submit" value="Add" />
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="table-responsive">
+                                <table class="table table-hover">
+                                    <thead>
+                                    <tr>
+                                        <th>
+                                            <input type="checkbox">
+                                        </th>
+                                        <th>S/N</th>
+                                        <th>Last Name</th>
+                                        <th>First Name</th>
+                                        <th>Offence</th>
+                                        <th class="text-right">Actions</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    @forelse($hardLabourPrisoners as $hardLabour)
+                                        <tr>
+                                            <td>
+                                                <input type="checkbox" ng-model="invoice.selected">
+                                            </td>
+                                            <td>{{ $hardLabour->prisoner->id }}</td>
+                                            <td>{{ $hardLabour->prisoner->last_name }}</td>
+                                            <td>{{ $hardLabour->prisoner->first_name }}</td>
+                                            <td>{{ $hardLabour->offence }}</td>
+                                            <td class="text-right">
+                                                <a href="{{ route('prisoner.show',$hardLabour->prisoner) }}" class="btn btn-icon-toggle"
+                                                   data-toggle="tooltip" data-placement="top" data-original-title="View">
+                                                    <i class="fa fa-eye"></i>
+                                                </a>
+                                                <a data-delete href="{{ url('activities/rehab/'.$hardLabour->id.'?hard-labour=true') }}"
+                                                   class="btn btn-icon-toggle" data-toggle="tooltip" data-placement="top"
+                                                   data-original-title="Remove From Hard Labour"><i class="fa fa-trash-o"></i></a>
+                                            </td>
+                                        </tr>
+
+                                    @empty
+                                        <tr>
+                                            <td colspan="9" class="text-center text-muted">
+                                                <h5> No Prisoner yet.</h5>
+                                            </td>
+                                        </tr>
+                                    @endforelse
+                                    </tbody>
+                                </table>
+
+                                {!! $hardLabourPrisoners->render() !!}
+                            </div>
+                        </div>
+                    </div>
+                </div><!--end .section-body -->
+            </div>
         </section>
     </div><!--end #content-->
     <!-- END CONTENT -->
