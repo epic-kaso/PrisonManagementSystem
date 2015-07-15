@@ -20,6 +20,7 @@ Route::group(['middleware' => 'auth'],function(){
     Route::controller('activities','PrisonActivitiesController');
     Route::resource('guard','GuardController');
     Route::resource('visitor','VisitorController');
+    Route::resource('profile','ProfileController',['only'=> ['show','edit','update'] ]);
 });
 
 Route::get('prisoner-pic/{path}',function($path){

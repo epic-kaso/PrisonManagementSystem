@@ -30,6 +30,7 @@
 								</span>
                         </a>
                         <ul class="dropdown-menu animation-dock">
+                            <li><a href="{{ route('profile.show',Auth::user()) }}"><i class="fa fa-fw fa-user"></i> My Profile</a></li>
                             <li><a href="{{ url('auth/logout') }}"><i class="fa fa-fw fa-power-off text-danger"></i> Logout</a></li>
                         </ul><!--end .dropdown-menu -->
                     </li><!--end .dropdown -->

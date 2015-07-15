@@ -9,10 +9,10 @@
    </div>
 @endif
 
-@if(isset($success))
+@if(Session::has('success'))
     <div class="row">
         <div class="alert alert-success">
-                <p>{{ $success }}</p>
+                <p>{{ Session::get('success') }}</p>
 
         </div>
     </div>
